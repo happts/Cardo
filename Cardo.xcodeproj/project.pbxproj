@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A95DA4A721F46A260039998D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95DA4A621F46A260039998D /* AppDelegate.swift */; };
+		A95DA4A921F46A260039998D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95DA4A821F46A260039998D /* ViewController.swift */; };
+		A95DA4AC21F46A260039998D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95DA4AA21F46A260039998D /* Main.storyboard */; };
+		A95DA4AE21F46A270039998D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A95DA4AD21F46A270039998D /* Assets.xcassets */; };
+		A95DA4B121F46A270039998D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95DA4AF21F46A270039998D /* LaunchScreen.storyboard */; };
+		A95DA4BC21F46A270039998D /* CardoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95DA4BB21F46A270039998D /* CardoTests.swift */; };
+		A95DA4C721F46A270039998D /* CardoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95DA4C621F46A270039998D /* CardoUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A95DA4B821F46A270039998D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A95DA49B21F46A260039998D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A95DA4A221F46A260039998D;
+			remoteInfo = Cardo;
+		};
+		A95DA4C321F46A270039998D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A95DA49B21F46A260039998D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A95DA4A221F46A260039998D;
+			remoteInfo = Cardo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A95DA4A321F46A260039998D /* Cardo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A95DA4A621F46A260039998D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A95DA4A821F46A260039998D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A95DA4AB21F46A260039998D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A95DA4AD21F46A270039998D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A95DA4B021F46A270039998D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A95DA4B221F46A270039998D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A95DA4B721F46A270039998D /* CardoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A95DA4BB21F46A270039998D /* CardoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardoTests.swift; sourceTree = "<group>"; };
+		A95DA4BD21F46A270039998D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A95DA4C221F46A270039998D /* CardoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A95DA4C621F46A270039998D /* CardoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardoUITests.swift; sourceTree = "<group>"; };
+		A95DA4C821F46A270039998D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A95DA4A021F46A260039998D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A95DA4B421F46A270039998D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A95DA4BF21F46A270039998D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A95DA49A21F46A260039998D = {
+			isa = PBXGroup;
+			children = (
+				A95DA4A521F46A260039998D /* Cardo */,
+				A95DA4BA21F46A270039998D /* CardoTests */,
+				A95DA4C521F46A270039998D /* CardoUITests */,
+				A95DA4A421F46A260039998D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A95DA4A421F46A260039998D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A95DA4A321F46A260039998D /* Cardo.app */,
+				A95DA4B721F46A270039998D /* CardoTests.xctest */,
+				A95DA4C221F46A270039998D /* CardoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A95DA4A521F46A260039998D /* Cardo */ = {
+			isa = PBXGroup;
+			children = (
+				A95DA4A621F46A260039998D /* AppDelegate.swift */,
+				A95DA4A821F46A260039998D /* ViewController.swift */,
+				A95DA4AA21F46A260039998D /* Main.storyboard */,
+				A95DA4AD21F46A270039998D /* Assets.xcassets */,
+				A95DA4AF21F46A270039998D /* LaunchScreen.storyboard */,
+				A95DA4B221F46A270039998D /* Info.plist */,
+			);
+			path = Cardo;
+			sourceTree = "<group>";
+		};
+		A95DA4BA21F46A270039998D /* CardoTests */ = {
+			isa = PBXGroup;
+			children = (
+				A95DA4BB21F46A270039998D /* CardoTests.swift */,
+				A95DA4BD21F46A270039998D /* Info.plist */,
+			);
+			path = CardoTests;
+			sourceTree = "<group>";
+		};
+		A95DA4C521F46A270039998D /* CardoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A95DA4C621F46A270039998D /* CardoUITests.swift */,
+				A95DA4C821F46A270039998D /* Info.plist */,
+			);
+			path = CardoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A95DA4A221F46A260039998D /* Cardo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A95DA4CB21F46A270039998D /* Build configuration list for PBXNativeTarget "Cardo" */;
+			buildPhases = (
+				A95DA49F21F46A260039998D /* Sources */,
+				A95DA4A021F46A260039998D /* Frameworks */,
+				A95DA4A121F46A260039998D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cardo;
+			productName = Cardo;
+			productReference = A95DA4A321F46A260039998D /* Cardo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A95DA4B621F46A270039998D /* CardoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A95DA4CE21F46A270039998D /* Build configuration list for PBXNativeTarget "CardoTests" */;
+			buildPhases = (
+				A95DA4B321F46A270039998D /* Sources */,
+				A95DA4B421F46A270039998D /* Frameworks */,
+				A95DA4B521F46A270039998D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A95DA4B921F46A270039998D /* PBXTargetDependency */,
+			);
+			name = CardoTests;
+			productName = CardoTests;
+			productReference = A95DA4B721F46A270039998D /* CardoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A95DA4C121F46A270039998D /* CardoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A95DA4D121F46A270039998D /* Build configuration list for PBXNativeTarget "CardoUITests" */;
+			buildPhases = (
+				A95DA4BE21F46A270039998D /* Sources */,
+				A95DA4BF21F46A270039998D /* Frameworks */,
+				A95DA4C021F46A270039998D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A95DA4C421F46A270039998D /* PBXTargetDependency */,
+			);
+			name = CardoUITests;
+			productName = CardoUITests;
+			productReference = A95DA4C221F46A270039998D /* CardoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A95DA49B21F46A260039998D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = happts;
+				TargetAttributes = {
+					A95DA4A221F46A260039998D = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					A95DA4B621F46A270039998D = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A95DA4A221F46A260039998D;
+					};
+					A95DA4C121F46A270039998D = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A95DA4A221F46A260039998D;
+					};
+				};
+			};
+			buildConfigurationList = A95DA49E21F46A260039998D /* Build configuration list for PBXProject "Cardo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A95DA49A21F46A260039998D;
+			productRefGroup = A95DA4A421F46A260039998D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A95DA4A221F46A260039998D /* Cardo */,
+				A95DA4B621F46A270039998D /* CardoTests */,
+				A95DA4C121F46A270039998D /* CardoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A95DA4A121F46A260039998D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A95DA4B121F46A270039998D /* LaunchScreen.storyboard in Resources */,
+				A95DA4AE21F46A270039998D /* Assets.xcassets in Resources */,
+				A95DA4AC21F46A260039998D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A95DA4B521F46A270039998D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A95DA4C021F46A270039998D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A95DA49F21F46A260039998D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A95DA4A921F46A260039998D /* ViewController.swift in Sources */,
+				A95DA4A721F46A260039998D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A95DA4B321F46A270039998D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A95DA4BC21F46A270039998D /* CardoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A95DA4BE21F46A270039998D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A95DA4C721F46A270039998D /* CardoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A95DA4B921F46A270039998D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A95DA4A221F46A260039998D /* Cardo */;
+			targetProxy = A95DA4B821F46A270039998D /* PBXContainerItemProxy */;
+		};
+		A95DA4C421F46A270039998D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A95DA4A221F46A260039998D /* Cardo */;
+			targetProxy = A95DA4C321F46A270039998D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A95DA4AA21F46A260039998D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A95DA4AB21F46A260039998D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A95DA4AF21F46A270039998D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A95DA4B021F46A270039998D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A95DA4C921F46A270039998D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A95DA4CA21F46A270039998D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A95DA4CC21F46A270039998D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZU63YWUX27;
+				INFOPLIST_FILE = Cardo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = happts.Cardo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A95DA4CD21F46A270039998D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZU63YWUX27;
+				INFOPLIST_FILE = Cardo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = happts.Cardo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A95DA4CF21F46A270039998D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZU63YWUX27;
+				INFOPLIST_FILE = CardoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = happts.CardoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cardo.app/Cardo";
+			};
+			name = Debug;
+		};
+		A95DA4D021F46A270039998D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZU63YWUX27;
+				INFOPLIST_FILE = CardoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = happts.CardoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cardo.app/Cardo";
+			};
+			name = Release;
+		};
+		A95DA4D221F46A270039998D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZU63YWUX27;
+				INFOPLIST_FILE = CardoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = happts.CardoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Cardo;
+			};
+			name = Debug;
+		};
+		A95DA4D321F46A270039998D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZU63YWUX27;
+				INFOPLIST_FILE = CardoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = happts.CardoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Cardo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A95DA49E21F46A260039998D /* Build configuration list for PBXProject "Cardo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A95DA4C921F46A270039998D /* Debug */,
+				A95DA4CA21F46A270039998D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A95DA4CB21F46A270039998D /* Build configuration list for PBXNativeTarget "Cardo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A95DA4CC21F46A270039998D /* Debug */,
+				A95DA4CD21F46A270039998D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A95DA4CE21F46A270039998D /* Build configuration list for PBXNativeTarget "CardoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A95DA4CF21F46A270039998D /* Debug */,
+				A95DA4D021F46A270039998D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A95DA4D121F46A270039998D /* Build configuration list for PBXNativeTarget "CardoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A95DA4D221F46A270039998D /* Debug */,
+				A95DA4D321F46A270039998D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A95DA49B21F46A260039998D /* Project object */;
+}
