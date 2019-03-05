@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardoPointView" customModule="Cardo" customModuleProvider="target">
+            <connections>
+                <outlet property="ContentView" destination="iN0-l3-epB" id="53K-S2-QNI"/>
+                <outlet property="ImageView" destination="lAk-U7-dZh" id="49g-x3-M79"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="45" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bkg" translatesAutoresizingMaskIntoConstraints="NO" id="lAk-U7-dZh">
+                    <rect key="frame" x="4.5" y="4" width="36" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="36" id="9XF-Hg-K6p"/>
+                        <constraint firstAttribute="height" constant="36" id="AdU-Q4-h0A"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PointBackground" translatesAutoresizingMaskIntoConstraints="NO" id="J24-T3-DPe">
+                    <rect key="frame" x="0.0" y="0.0" width="45" height="50"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="lAk-U7-dZh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="B29-fr-UWp"/>
+                <constraint firstItem="J24-T3-DPe" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="BUA-gl-n28"/>
+                <constraint firstItem="J24-T3-DPe" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="DzN-aM-2JW"/>
+                <constraint firstItem="J24-T3-DPe" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="IU1-2C-jfa"/>
+                <constraint firstItem="lAk-U7-dZh" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-3" id="k5E-9z-hk6"/>
+                <constraint firstItem="J24-T3-DPe" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="mpl-b5-aF8"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="40.799999999999997" y="-34.182908545727138"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="PointBackground" width="187" height="210.24000549316406"/>
+        <image name="bkg" width="88" height="88"/>
+    </resources>
+</document>

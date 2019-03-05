@@ -7,13 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D3620B856999F1317CD424D /* Pods_CardoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F07BB50A3505D0A35EEBFDB /* Pods_CardoUITests.framework */; };
+		3498A8DE214B605E86EF0ED1 /* Pods_CardoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7741DDB507CD4979B8887FA /* Pods_CardoTests.framework */; };
+		A078542988D7A2E1BCF0A88B /* Pods_Cardo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C3FEA19ADC4C2E12449A96 /* Pods_Cardo.framework */; };
+		A923A8072226BF3100950D71 /* CardoCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A923A8062226BF3100950D71 /* CardoCollectionHeaderView.swift */; };
+		A923A80D2226D27900950D71 /* CardoPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A923A80C2226D27900950D71 /* CardoPointView.swift */; };
+		A923A80F2226D29000950D71 /* CardoPointView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A923A80E2226D29000950D71 /* CardoPointView.xib */; };
+		A9393A672223E88100FE8329 /* CollectionHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9393A652223E88100FE8329 /* CollectionHeadView.swift */; };
+		A9393A682223E88100FE8329 /* CollectionHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9393A662223E88100FE8329 /* CollectionHeadView.xib */; };
+		A94DF089222568AA00EE820C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94DF088222568A900EE820C /* MapKit.framework */; };
+		A94DF08C222568BD00EE820C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94DF08B222568BD00EE820C /* StoreKit.framework */; };
 		A95DA4A721F46A260039998D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95DA4A621F46A260039998D /* AppDelegate.swift */; };
-		A95DA4A921F46A260039998D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95DA4A821F46A260039998D /* ViewController.swift */; };
 		A95DA4AC21F46A260039998D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95DA4AA21F46A260039998D /* Main.storyboard */; };
 		A95DA4AE21F46A270039998D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A95DA4AD21F46A270039998D /* Assets.xcassets */; };
 		A95DA4B121F46A270039998D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95DA4AF21F46A270039998D /* LaunchScreen.storyboard */; };
 		A95DA4BC21F46A270039998D /* CardoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95DA4BB21F46A270039998D /* CardoTests.swift */; };
 		A95DA4C721F46A270039998D /* CardoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95DA4C621F46A270039998D /* CardoUITests.swift */; };
+		A99DA24722213F590055DB55 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99DA24622213F590055DB55 /* CameraViewController.swift */; };
+		A99DA24922213FF30055DB55 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99DA24822213FF30055DB55 /* LoginViewController.swift */; };
+		A99DA24B222143460055DB55 /* MapCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99DA24A222143460055DB55 /* MapCardsViewController.swift */; };
+		A99DA24E222144EB0055DB55 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99DA24D222144EB0055DB55 /* MyTabBarController.swift */; };
+		A9B37DDD2227A9CB00117F96 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B37DDC2227A9CB00117F96 /* AccountTableViewController.swift */; };
+		A9B37DDF2227B78300117F96 /* UIAlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B37DDE2227B78300117F96 /* UIAlertUtils.swift */; };
+		A9B37DE12227BC7200117F96 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B37DE02227BC7200117F96 /* CustomAnnotationView.swift */; };
+		A9B3EAB02223DF8A002A387D /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3EAAE2223DF8A002A387D /* CardCell.swift */; };
+		A9B3EAB12223DF8A002A387D /* CardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9B3EAAF2223DF8A002A387D /* CardCell.xib */; };
+		A9C27A0B22017B2700D2C773 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C27A0A22017B2700D2C773 /* CollectionViewController.swift */; };
+		A9EDD6C52227EAC0007CD25A /* CardoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EDD6C32227EAC0007CD25A /* CardoViewController.swift */; };
+		A9EDD6C62227EAC0007CD25A /* CardoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9EDD6C42227EAC0007CD25A /* CardoViewController.xib */; };
+		A9F22B3F222D5B89004622C1 /* CardoCollectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F22B3E222D5B89004622C1 /* CardoCollectionFooterView.swift */; };
+		A9F22B41222D6522004622C1 /* CardoSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F22B40222D6522004622C1 /* CardoSectionViewModel.swift */; };
+		B7038558CD7FF3D2587BF3C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7038619A16F00AEFA98F97E /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +58,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F07BB50A3505D0A35EEBFDB /* Pods_CardoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CardoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95C3FEA19ADC4C2E12449A96 /* Pods_Cardo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cardo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A923A8062226BF3100950D71 /* CardoCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardoCollectionHeaderView.swift; sourceTree = "<group>"; };
+		A923A80C2226D27900950D71 /* CardoPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardoPointView.swift; sourceTree = "<group>"; };
+		A923A80E2226D29000950D71 /* CardoPointView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardoPointView.xib; sourceTree = "<group>"; };
+		A9393A652223E88100FE8329 /* CollectionHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeadView.swift; sourceTree = "<group>"; };
+		A9393A662223E88100FE8329 /* CollectionHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionHeadView.xib; sourceTree = "<group>"; };
+		A94DF088222568A900EE820C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A94DF08A222568B300EE820C /* Cardo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cardo.entitlements; sourceTree = "<group>"; };
+		A94DF08B222568BD00EE820C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		A95DA4A321F46A260039998D /* Cardo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A95DA4A621F46A260039998D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A95DA4A821F46A260039998D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A95DA4AB21F46A260039998D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A95DA4AD21F46A270039998D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A95DA4B021F46A270039998D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +80,28 @@
 		A95DA4C221F46A270039998D /* CardoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A95DA4C621F46A270039998D /* CardoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardoUITests.swift; sourceTree = "<group>"; };
 		A95DA4C821F46A270039998D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A99DA24622213F590055DB55 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		A99DA24822213FF30055DB55 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A99DA24A222143460055DB55 /* MapCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCardsViewController.swift; sourceTree = "<group>"; };
+		A99DA24D222144EB0055DB55 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
+		A9B37DDC2227A9CB00117F96 /* AccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
+		A9B37DDE2227B78300117F96 /* UIAlertUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertUtils.swift; sourceTree = "<group>"; };
+		A9B37DE02227BC7200117F96 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
+		A9B3EAAE2223DF8A002A387D /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		A9B3EAAF2223DF8A002A387D /* CardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCell.xib; sourceTree = "<group>"; };
+		A9C27A0A22017B2700D2C773 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		A9EDD6C32227EAC0007CD25A /* CardoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardoViewController.swift; sourceTree = "<group>"; };
+		A9EDD6C42227EAC0007CD25A /* CardoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardoViewController.xib; sourceTree = "<group>"; };
+		A9F22B3E222D5B89004622C1 /* CardoCollectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardoCollectionFooterView.swift; sourceTree = "<group>"; };
+		A9F22B40222D6522004622C1 /* CardoSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardoSectionViewModel.swift; sourceTree = "<group>"; };
+		B4480B873E2F3A58A67B290A /* Pods-CardoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CardoTests/Pods-CardoTests.release.xcconfig"; sourceTree = "<group>"; };
+		B7038619A16F00AEFA98F97E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B7741DDB507CD4979B8887FA /* Pods_CardoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CardoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3E7341215AC67AA490FDF67 /* Pods-CardoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CardoUITests/Pods-CardoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C76D2921D1F303574AB03A67 /* Pods-CardoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CardoTests/Pods-CardoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DA73DC370A0F7AF97B9218A9 /* Pods-Cardo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cardo/Pods-Cardo.release.xcconfig"; sourceTree = "<group>"; };
+		F7507BDD453DB76E78262B01 /* Pods-CardoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CardoUITests/Pods-CardoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F9337C1E99C572B05B0BB691 /* Pods-Cardo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cardo/Pods-Cardo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +109,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A94DF08C222568BD00EE820C /* StoreKit.framework in Frameworks */,
+				A94DF089222568AA00EE820C /* MapKit.framework in Frameworks */,
+				A078542988D7A2E1BCF0A88B /* Pods_Cardo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3498A8DE214B605E86EF0ED1 /* Pods_CardoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +127,86 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D3620B856999F1317CD424D /* Pods_CardoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6FA8900668BC0D2588CBE9C4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F9337C1E99C572B05B0BB691 /* Pods-Cardo.debug.xcconfig */,
+				DA73DC370A0F7AF97B9218A9 /* Pods-Cardo.release.xcconfig */,
+				C76D2921D1F303574AB03A67 /* Pods-CardoTests.debug.xcconfig */,
+				B4480B873E2F3A58A67B290A /* Pods-CardoTests.release.xcconfig */,
+				F7507BDD453DB76E78262B01 /* Pods-CardoUITests.debug.xcconfig */,
+				C3E7341215AC67AA490FDF67 /* Pods-CardoUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A923A8032226BC5400950D71 /* unuse */ = {
+			isa = PBXGroup;
+			children = (
+				A99DA24622213F590055DB55 /* CameraViewController.swift */,
+				A9393A652223E88100FE8329 /* CollectionHeadView.swift */,
+				A9393A662223E88100FE8329 /* CollectionHeadView.xib */,
+			);
+			path = unuse;
+			sourceTree = "<group>";
+		};
+		A923A8042226BC7A00950D71 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A95DA4AA21F46A260039998D /* Main.storyboard */,
+				A99DA24822213FF30055DB55 /* LoginViewController.swift */,
+				A97DC08E222826AC00B79196 /* TabBar */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		A923A8052226BEFF00950D71 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				A9393A642223E39600FE8329 /* meta */,
+				A9C27A0A22017B2700D2C773 /* CollectionViewController.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		A923A8082226D21B00950D71 /* MapCardsView */ = {
+			isa = PBXGroup;
+			children = (
+				A923A8092226D22C00950D71 /* meta */,
+				A99DA24A222143460055DB55 /* MapCardsViewController.swift */,
+			);
+			path = MapCardsView;
+			sourceTree = "<group>";
+		};
+		A923A8092226D22C00950D71 /* meta */ = {
+			isa = PBXGroup;
+			children = (
+				A923A80C2226D27900950D71 /* CardoPointView.swift */,
+				A923A80E2226D29000950D71 /* CardoPointView.xib */,
+				A9B37DE02227BC7200117F96 /* CustomAnnotationView.swift */,
+			);
+			path = meta;
+			sourceTree = "<group>";
+		};
+		A9393A642223E39600FE8329 /* meta */ = {
+			isa = PBXGroup;
+			children = (
+				A9B3EAAE2223DF8A002A387D /* CardCell.swift */,
+				A9B3EAAF2223DF8A002A387D /* CardCell.xib */,
+				A923A8062226BF3100950D71 /* CardoCollectionHeaderView.swift */,
+				A9F22B3E222D5B89004622C1 /* CardoCollectionFooterView.swift */,
+				A9F22B40222D6522004622C1 /* CardoSectionViewModel.swift */,
+			);
+			path = meta;
+			sourceTree = "<group>";
+		};
 		A95DA49A21F46A260039998D = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +214,8 @@
 				A95DA4BA21F46A270039998D /* CardoTests */,
 				A95DA4C521F46A270039998D /* CardoUITests */,
 				A95DA4A421F46A260039998D /* Products */,
+				6FA8900668BC0D2588CBE9C4 /* Pods */,
+				DC9ADE0BD55F8AB6C94E917D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +232,14 @@
 		A95DA4A521F46A260039998D /* Cardo */ = {
 			isa = PBXGroup;
 			children = (
+				A923A8042226BC7A00950D71 /* UI */,
+				A97DC08D2228198100B79196 /* Utils */,
+				A94DF08A222568B300EE820C /* Cardo.entitlements */,
 				A95DA4A621F46A260039998D /* AppDelegate.swift */,
-				A95DA4A821F46A260039998D /* ViewController.swift */,
-				A95DA4AA21F46A260039998D /* Main.storyboard */,
 				A95DA4AD21F46A270039998D /* Assets.xcassets */,
 				A95DA4AF21F46A270039998D /* LaunchScreen.storyboard */,
 				A95DA4B221F46A270039998D /* Info.plist */,
+				A923A8032226BC5400950D71 /* unuse */,
 			);
 			path = Cardo;
 			sourceTree = "<group>";
@@ -112,6 +249,7 @@
 			children = (
 				A95DA4BB21F46A270039998D /* CardoTests.swift */,
 				A95DA4BD21F46A270039998D /* Info.plist */,
+				B7038619A16F00AEFA98F97E /* ViewController.swift */,
 			);
 			path = CardoTests;
 			sourceTree = "<group>";
@@ -125,6 +263,47 @@
 			path = CardoUITests;
 			sourceTree = "<group>";
 		};
+		A97DC08D2228198100B79196 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A9B37DDE2227B78300117F96 /* UIAlertUtils.swift */,
+				A9EDD6C32227EAC0007CD25A /* CardoViewController.swift */,
+				A9EDD6C42227EAC0007CD25A /* CardoViewController.xib */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A97DC08E222826AC00B79196 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A99DA24D222144EB0055DB55 /* MyTabBarController.swift */,
+				A99DA24C222143CE0055DB55 /* tab */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		A99DA24C222143CE0055DB55 /* tab */ = {
+			isa = PBXGroup;
+			children = (
+				A9B37DDC2227A9CB00117F96 /* AccountTableViewController.swift */,
+				A923A8082226D21B00950D71 /* MapCardsView */,
+				A923A8052226BEFF00950D71 /* CollectionView */,
+			);
+			path = tab;
+			sourceTree = "<group>";
+		};
+		DC9ADE0BD55F8AB6C94E917D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A94DF08B222568BD00EE820C /* StoreKit.framework */,
+				A94DF088222568A900EE820C /* MapKit.framework */,
+				95C3FEA19ADC4C2E12449A96 /* Pods_Cardo.framework */,
+				B7741DDB507CD4979B8887FA /* Pods_CardoTests.framework */,
+				0F07BB50A3505D0A35EEBFDB /* Pods_CardoUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +311,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A95DA4CB21F46A270039998D /* Build configuration list for PBXNativeTarget "Cardo" */;
 			buildPhases = (
+				2C14F38419DB369F4145BC4C /* [CP] Check Pods Manifest.lock */,
 				A95DA49F21F46A260039998D /* Sources */,
 				A95DA4A021F46A260039998D /* Frameworks */,
 				A95DA4A121F46A260039998D /* Resources */,
+				7692614E0AD9605A47D4E17D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +330,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A95DA4CE21F46A270039998D /* Build configuration list for PBXNativeTarget "CardoTests" */;
 			buildPhases = (
+				D9C75E25C2FAD54311878F61 /* [CP] Check Pods Manifest.lock */,
 				A95DA4B321F46A270039998D /* Sources */,
 				A95DA4B421F46A270039998D /* Frameworks */,
 				A95DA4B521F46A270039998D /* Resources */,
@@ -167,6 +349,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A95DA4D121F46A270039998D /* Build configuration list for PBXNativeTarget "CardoUITests" */;
 			buildPhases = (
+				A72E8A54B2321B9D8D0D56DA /* [CP] Check Pods Manifest.lock */,
 				A95DA4BE21F46A270039998D /* Sources */,
 				A95DA4BF21F46A270039998D /* Frameworks */,
 				A95DA4C021F46A270039998D /* Resources */,
@@ -188,20 +371,37 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = happts;
 				TargetAttributes = {
 					A95DA4A221F46A260039998D = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.AccessWiFi = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					A95DA4B621F46A270039998D = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A95DA4A221F46A260039998D;
 					};
 					A95DA4C121F46A270039998D = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A95DA4A221F46A260039998D;
 					};
@@ -234,7 +434,11 @@
 			files = (
 				A95DA4B121F46A270039998D /* LaunchScreen.storyboard in Resources */,
 				A95DA4AE21F46A270039998D /* Assets.xcassets in Resources */,
+				A9393A682223E88100FE8329 /* CollectionHeadView.xib in Resources */,
 				A95DA4AC21F46A260039998D /* Main.storyboard in Resources */,
+				A9B3EAB12223DF8A002A387D /* CardCell.xib in Resources */,
+				A923A80F2226D29000950D71 /* CardoPointView.xib in Resources */,
+				A9EDD6C62227EAC0007CD25A /* CardoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,13 +458,119 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2C14F38419DB369F4145BC4C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cardo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7692614E0AD9605A47D4E17D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Cardo/Pods-Cardo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ESTabBarController-swift/ESTabBarController_swift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESTabBarController_swift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cardo/Pods-Cardo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A72E8A54B2321B9D8D0D56DA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CardoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9C75E25C2FAD54311878F61 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CardoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A95DA49F21F46A260039998D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A95DA4A921F46A260039998D /* ViewController.swift in Sources */,
+				A99DA24B222143460055DB55 /* MapCardsViewController.swift in Sources */,
+				A923A8072226BF3100950D71 /* CardoCollectionHeaderView.swift in Sources */,
+				A9B37DDD2227A9CB00117F96 /* AccountTableViewController.swift in Sources */,
+				A9EDD6C52227EAC0007CD25A /* CardoViewController.swift in Sources */,
+				A99DA24922213FF30055DB55 /* LoginViewController.swift in Sources */,
+				A9C27A0B22017B2700D2C773 /* CollectionViewController.swift in Sources */,
+				A99DA24722213F590055DB55 /* CameraViewController.swift in Sources */,
+				A9F22B41222D6522004622C1 /* CardoSectionViewModel.swift in Sources */,
 				A95DA4A721F46A260039998D /* AppDelegate.swift in Sources */,
+				A9B3EAB02223DF8A002A387D /* CardCell.swift in Sources */,
+				A9F22B3F222D5B89004622C1 /* CardoCollectionFooterView.swift in Sources */,
+				B7038558CD7FF3D2587BF3C5 /* ViewController.swift in Sources */,
+				A9393A672223E88100FE8329 /* CollectionHeadView.swift in Sources */,
+				A9B37DDF2227B78300117F96 /* UIAlertUtils.swift in Sources */,
+				A923A80D2226D27900950D71 /* CardoPointView.swift in Sources */,
+				A9B37DE12227BC7200117F96 /* CustomAnnotationView.swift in Sources */,
+				A99DA24E222144EB0055DB55 /* MyTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +629,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -329,6 +640,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -336,6 +648,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -363,7 +676,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -376,6 +689,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -386,6 +700,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -393,6 +708,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -414,7 +730,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -424,36 +740,45 @@
 		};
 		A95DA4CC21F46A270039998D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9337C1E99C572B05B0BB691 /* Pods-Cardo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Cardo/Cardo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZU63YWUX27;
 				INFOPLIST_FILE = Cardo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = happts.Cardo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 arm64e";
 			};
 			name = Debug;
 		};
 		A95DA4CD21F46A270039998D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA73DC370A0F7AF97B9218A9 /* Pods-Cardo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Cardo/Cardo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZU63YWUX27;
 				INFOPLIST_FILE = Cardo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = happts.Cardo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 arm64e";
 			};
 			name = Release;
 		};
 		A95DA4CF21F46A270039998D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C76D2921D1F303574AB03A67 /* Pods-CardoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -463,7 +788,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = happts.CardoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cardo.app/Cardo";
 			};
@@ -471,6 +796,7 @@
 		};
 		A95DA4D021F46A270039998D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4480B873E2F3A58A67B290A /* Pods-CardoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -480,7 +806,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = happts.CardoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cardo.app/Cardo";
 			};
@@ -488,6 +814,7 @@
 		};
 		A95DA4D221F46A270039998D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7507BDD453DB76E78262B01 /* Pods-CardoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -496,7 +823,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = happts.CardoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Cardo;
 			};
@@ -504,6 +831,7 @@
 		};
 		A95DA4D321F46A270039998D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3E7341215AC67AA490FDF67 /* Pods-CardoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -512,7 +840,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = happts.CardoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Cardo;
 			};
