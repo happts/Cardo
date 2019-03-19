@@ -16,7 +16,12 @@ class CardoCollectionHeaderView: UICollectionReusableView {
     @IBOutlet weak var DateLabel: UILabel!
     @IBOutlet weak var EditStackView: UIStackView!
     
-    var viewModel:CardoSectionViewModel!
+    var data:Day_Cardos! {
+        didSet {
+            self.DateLabel.text = data.date
+            self.EditState = data.editState
+        }
+    }
     
     var EditState = false {
         didSet {
@@ -28,7 +33,7 @@ class CardoCollectionHeaderView: UICollectionReusableView {
     var share:(() -> Void)?
     var collect:(() -> Void)?
     var delete:(() -> Void)?
-    var edit:(() -> Void)?
+    var edit:(() -> Void)?  
     
     @IBAction func ShareAction() {
         guard let action = share else {
@@ -55,7 +60,12 @@ class CardoCollectionHeaderView: UICollectionReusableView {
     }
     
     @IBAction func EditAction(_ sender: Any) {
-        viewModel.editState = true
+        data.editState = true
+        guard let action = edit else {
+            print("edit nil")
+            return
+        }
+        action()
     }
     
 }

@@ -10,6 +10,8 @@ import UIKit
 import ESTabBarController_swift
 
 class MyTabBarController: ESTabBarController,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
+    
+    var isOCR = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +28,9 @@ class MyTabBarController: ESTabBarController,UINavigationControllerDelegate,UIIm
         for i in 0..<vcs.count {
             switch i {
             case 0:
-                vcs[i].tabBarItem = ESTabBarItem.init(TabBarColorContentView(), title: "Home", image: UIImage(named: "home"), selectedImage: UIImage(named: "home"))
+                vcs[i].tabBarItem = ESTabBarItem.init(TabBarColorContentView(), title: "Home", image: UIImage(named: "calendar"), selectedImage: UIImage(named: "calendar_select"))
             case 1:
-                vcs[i].tabBarItem = ESTabBarItem.init(ExampleIrregularityContentView(), title: nil, image: UIImage(named: "photo_verybig"), selectedImage: UIImage(named: "photo_verybig"))
+                vcs[i].tabBarItem = ESTabBarItem.init(ExampleIrregularityContentView(), title: nil, image: UIImage(named: "capture_item"), selectedImage: UIImage(named: "capture_item"))
                 vcs[i].tabBarItem.tag = 9
             case 2:
                 vcs[i].tabBarItem = ESTabBarItem.init(TabBarColorContentView(), title: "Home", image: UIImage(named: "home"), selectedImage: UIImage(named: "home_1"))
@@ -42,9 +44,25 @@ class MyTabBarController: ESTabBarController,UINavigationControllerDelegate,UIIm
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if item.tag == 9 {
             let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-            let takePhotoAction = UIAlertAction(title: "Take a photo", style: .default, handler: nil)
-            alertController.addAction(takePhotoAction)
-            let selectFromAlbumAction = UIAlertAction(title: "Select from album", style: .default){ _ in
+            let translateAction = UIAlertAction(title: "nothing will happen", style: .default){ _ in
+                self.isOCR = true
+                if UIImagePickerController.isSourceTypeAvailable(.camera){
+                    let  cameraPicker = UIImagePickerController()
+                    cameraPicker.delegate = self
+                    cameraPicker.allowsEditing = true
+                    cameraPicker.sourceType = .camera
+                    //                    cameraPicker.showsCameraControls = false
+                    //                    cameraPicker.cameraOverlayView = self.setCameraView()
+                    //在需要的地方present出来
+                    self.present(cameraPicker, animated: true, completion: nil)
+                } else {
+                    print("不支持拍照")
+                }
+            }
+            
+            alertController.addAction(translateAction)
+            let objectDetectAction = UIAlertAction(title: "Take a photo", style: .default){ _ in
+                self.isOCR = false
                 if UIImagePickerController.isSourceTypeAvailable(.camera){
                     let  cameraPicker = UIImagePickerController()
                     cameraPicker.delegate = self
@@ -55,19 +73,16 @@ class MyTabBarController: ESTabBarController,UINavigationControllerDelegate,UIIm
                     //在需要的地方present出来
                     self.present(cameraPicker, animated: true, completion: nil)
                 } else {
-                    
                     print("不支持拍照")
-                    
                 }
             }
-            alertController.addAction(selectFromAlbumAction)
+            alertController.addAction(objectDetectAction)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alertController.addAction(cancelAction)
             self.present(alertController, animated: true, completion: nil)
         }else {
             super.tabBar(tabBar, didSelect: item)
         }
-        
     }
     
     
@@ -88,9 +103,10 @@ class MyTabBarController: ESTabBarController,UINavigationControllerDelegate,UIIm
         let vc = CardoViewController()
         vc.loadViewIfNeeded()
         vc.ImageView.image = image
-        vc.NameLabel.text = "拍照后跳转到一(本界面)"
-        picker.dismiss(animated: true, completion: nil)
+        
+        vc.NameLabel.text = "识别结果"
         self.present(vc, animated: true, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation

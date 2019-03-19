@@ -10,9 +10,12 @@ import UIKit
 
 class CardoCollectionFooterView: UICollectionReusableView {
     
-    var viewModel:CardoSectionViewModel!
-    var index:IndexPath!
-    var collectionView:UICollectionView!
+    
+    var data:Day_Cardos! {
+        didSet {
+            self.EditState = data.editState
+        }
+    }
     
     var EditState = false {
         didSet {
@@ -23,6 +26,7 @@ class CardoCollectionFooterView: UICollectionReusableView {
     
     @IBOutlet weak var CancelButton: UIButton!
     @IBAction func CancelAction() {
-        viewModel.editState = false
+        data.editState = false
     }
+    
 }

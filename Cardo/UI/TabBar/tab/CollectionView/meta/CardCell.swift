@@ -16,6 +16,8 @@ class CardCell: UICollectionViewCell {
     
     @IBOutlet private weak var NameLabel: UILabel!
     
+    var index:IndexPath!
+    
     var name:String {
         get {
             return NameLabel.text ?? ""
@@ -56,17 +58,51 @@ class CardCell: UICollectionViewCell {
         }
     }
     
-    var editState = false {
+    override var isSelected: Bool {
         didSet {
-            self.CollectImageView.isHidden = editState
-            self.ShareImageView.image = UIImage(named: "UnSelect_Cell")
+            if isSelected {
+                self.ShareImageView.image = UIImage(named: "Selected_Cell")
+            }else {
+                self.ShareImageView.image = UIImage(named: "UnSelect_Cell")
+            }
         }
     }
     
+    var editState = false {
+        didSet {
+            self.CollectImageView.isHidden = editState
+            if editState {
+                self.ShareImageView.isHidden = false
+                self.ShareImageView.image = UIImage(named: "UnSelect_Cell")
+            }else {
+                self.ShareImageView.image = UIImage(named: "分享")
+            }
+        }
+    }
+    
+    
+    
+//    var press = UILongPressGestureRecognizer(target: self, action: #selector(presa))
+    
+//    var longpressAction:(()->Void)!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    @objc func presa() {
+        print("long press")
+//        longpressAction()
+    }
 
+    
+    func setCardCell(cardo:Cardo,index:IndexPath) {
+        self.editState = cardo.editState
+        self.index = index
+        self.name = cardo.title
+        self.image = cardo.image
+        self.isShared = cardo.isShared
+        self.isCollected = cardo.isCollected
+    }
 }

@@ -108,7 +108,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEl-Bs-yAg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-636" y="-1067"/>
+            <point key="canvasLocation" x="161" y="-1067"/>
         </scene>
         <!--NeverAppear-->
         <scene sceneID="M9F-bc-fMl">
@@ -264,6 +264,15 @@
                             <size key="footerReferenceSize" width="50" height="35"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
+                        <view key="backgroundView" contentMode="scaleToFill" id="gnb-Zx-sMt">
+                            <rect key="frame" x="0.0" y="-64" width="414" height="736"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="6tI-9c-17m" appends="YES" id="mYX-Ti-Zxi"/>
+                            </connections>
+                        </view>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="Ui8-WB-9om" customClass="CardoCell" customModule="Cardo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="88" height="88"/>
@@ -442,6 +451,9 @@
                                 <segment title="收藏   "/>
                             </segments>
                             <color key="tintColor" red="0.8901960784313725" green="0.74901960784313726" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="SegmentChangeAction:" destination="puw-cd-Vxz" eventType="valueChanged" id="AiT-zK-Viq"/>
+                            </connections>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" image="account" id="p4O-fp-Ltv">
                             <color key="tintColor" red="0.89019607840000003" green="0.74901960779999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -450,8 +462,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="CardoSegmentedControl" destination="AMM-vk-Us8" id="gVz-jz-CZG"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ysb-IZ-5w9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="6tI-9c-17m"/>
             </objects>
             <point key="canvasLocation" x="160.86956521739131" y="-304.07608695652175"/>
         </scene>

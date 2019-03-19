@@ -17,16 +17,25 @@ class MapCardsViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
     @IBOutlet weak var MineOrOthersSegmentedControl: UISegmentedControl!
     
     @IBAction func switchStateAction(_ sender: UISegmentedControl) {
+        self.CardMapView.removeAnnotations(self.CardMapView.annotations)
         if sender.selectedSegmentIndex == 0 {
+            for cardo in mycardoList {
+                CardMapView.addAnnotation(cardo.pointAnnoation)
+            }
             print("now is 0, My Cardo")
         }else {
             print("now is 1, Others Cardo")
+            for cardo in nearbyCardoList {
+                CardMapView.addAnnotation(cardo.pointAnnoation)
+            }
         }
-        
     }
     @IBOutlet weak var CardMapView: MKMapView!
     
     let locationManager = CLLocationManager()
+    
+    var mycardoList:[Cardo] = []
+    var nearbyCardoList:[Cardo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,17 +50,23 @@ class MapCardsViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
         CardMapView.showsUserLocation = true
         CardMapView.userTrackingMode = .followWithHeading
         
+        testdata()
+    }
+    
+    func testdata() {
+        let a = Cardo(id: 0, title: "test1", subtitle: "test sub test", image: UIImage(named: "bkg"), latitude: 31.497438, longitude: 120.318628, isShared: true, isCollected: true)
+        self.mycardoList.append(a)
         
+        let b = Cardo(id: 1, title: "test2", subtitle: "it is a story", image: UIImage(named: "bkg"), latitude: 31.497438, longitude: 120.318628, isShared: true, isCollected: true)
+        self.nearbyCardoList.append(b)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         CardMapView.setRegion(MKCoordinateRegion(center: locationManager.location?.coordinate ?? CLLocationCoordinate2D(latitude: 31.497438, longitude: 120.318628), latitudinalMeters: 5000, longitudinalMeters: 5000), animated: true)
-        
-        let anno = MKPointAnnotation()
-        anno.coordinate = CLLocationCoordinate2D(latitude: 31.497438, longitude: 120.318628)
-        anno.title = "test"
-        anno.subtitle = "subTest dasdf asdf aasdf asd"
-        CardMapView.addAnnotation(anno)
+
+        for cardo in mycardoList {
+            CardMapView.addAnnotation(cardo.pointAnnoation)
+        }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -63,31 +78,25 @@ class MapCardsViewController: UIViewController,CLLocationManagerDelegate,MKMapVi
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuserId)
         if pinView == nil {
             pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuserId)
+            pinView?.centerOffset = CGPoint(x: 0, y: 0)
+            pinView?.canShowCallout = true
         }
         pinView?.annotation = annotation
-
-        let cardopointview = CardoPointView(frame: CGRect(x: 0, y: 0, width: 45, height: 50))
-        cardopointview.ImageView.image = UIImage(named: "bkg")
         
-        pinView?.image = cardopointview.convertToImage()
-        pinView?.centerOffset = CGPoint(x: 0, y: 0)
-        pinView?.canShowCallout = true
-
-        let imageview = UIImageView(image: UIImage(named: "bkg")) //UIImage(named: "favor")
+        pinView?.image = (annotation as! CardoAnnotation).pointViewImage
+        
+        let imageview = UIImageView(image: (annotation as! CardoAnnotation).image)
         imageview.frame.size = CGSize(width: 50, height: 50)
         pinView?.leftCalloutAccessoryView = imageview
         
         if self.MineOrOthersSegmentedControl.selectedSegmentIndex == 1 {
-            pinView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+//            let imageview = UIImageView(image: (annotation as! CardoAnnotation).image)
+//            imageview.frame.size = CGSize(width: 50, height: 50)
+//            pinView?.rightCalloutAccessoryView = imageview
         }
         
         return pinView
     }
-    
-//    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-//        <#code#>
-//    }
-    
     
 
     func requestPrivacy(){

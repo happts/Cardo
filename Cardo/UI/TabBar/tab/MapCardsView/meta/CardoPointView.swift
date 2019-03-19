@@ -12,21 +12,21 @@ class CardoPointView: UIView {
 
     @IBOutlet var ContentView: UIView!
     @IBOutlet weak var ImageView: UIImageView!
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    var image:UIImage? {
+        set {
+            self.ImageView.image = newValue
+        }
+        get {
+            return self.ImageView.image
+        }
     }
-    */
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         ContentView = loadViewFromNib()
         ContentView.frame = bounds
         addSubview(ContentView)
-//        ImageView.layer.masksToBounds = true
-//        ImageView.layer.cornerRadius = 25
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,8 +34,6 @@ class CardoPointView: UIView {
         ContentView = loadViewFromNib()
         ContentView.frame = bounds
         addSubview(ContentView)
-//        ImageView.layer.masksToBounds = true
-//        ImageView.layer.cornerRadius = 25
     }
 
     private func loadViewFromNib() -> UIView {

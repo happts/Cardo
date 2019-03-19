@@ -10,6 +10,7 @@ import UIKit
 
 class CardoViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
+    @IBOutlet weak var ResultTextView: UITextView!
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var ImageView: UIImageView!
     override func viewDidLoad() {
@@ -27,7 +28,12 @@ class CardoViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     }
 
     @IBAction func CancelAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        if self.navigationController != nil {
+            print("test")
+            self.navigationController?.popViewController(animated: true)
+        }else {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func SaveAction(_ sender: Any) {

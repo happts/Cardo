@@ -65,11 +65,11 @@
             <size key="customSize" width="130" height="130"/>
             <connections>
                 <outlet property="BackgroundImageView" destination="Jdv-KJ-gvH" id="DUx-YS-XPd"/>
-                <outlet property="CollectImageView" destination="Iij-jr-ziH" id="Iuu-cx-buB"/>
+                <outlet property="CollectImageView" destination="Iij-jr-ziH" id="SaK-uJ-Mo3"/>
                 <outlet property="NameLabel" destination="oYd-UR-oyy" id="w3P-W4-1dX"/>
                 <outlet property="ShareImageView" destination="ocO-0Q-Cr8" id="Yat-xM-Yag"/>
             </connections>
-            <point key="canvasLocation" x="-414" y="157"/>
+            <point key="canvasLocation" x="-488" y="166"/>
         </collectionViewCell>
     </objects>
     <resources>
