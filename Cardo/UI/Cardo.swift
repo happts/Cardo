@@ -14,6 +14,130 @@ import MapKit
 import Alamofire
 import SwiftyJSON
 
+struct CardoS {
+    let id:Int
+    let fileUserId:Int
+    let time:Date
+    var date:Date {
+        return time
+    }
+    
+    var title:String
+    var description:String
+    
+    var imageFilePath:String
+    var imageData:Data? {
+        didSet {
+            guard let cell = self.cell else {
+                return
+            }
+            if cell.sectionViewModel?.collectionViewModel?.vc?.collectionView.indexPathsForVisibleItems.contains(cell.indexPath) ?? false {
+                cell.image = UIImage(data: imageData!)
+            }
+        }
+    }
+    
+    var latitude:Double
+    var longitude:Double
+    
+    var isShared:Bool
+    var isCollected:Bool
+    
+    weak var cell:CardCell?
+    
+    init(json:JSON) {
+        self.id = json["photo_id"].intValue
+        self.fileUserId = json["file_user_id"].intValue
+        //        self.fileUserNickname = json["nickname"].stringValue
+        self.imageFilePath = json["file_name"].stringValue
+        self.latitude = json["latitude"].doubleValue
+        self.longitude = json["longitude"].doubleValue
+        self.title = json["title"].stringValue
+        self.description = json["description"].stringValue
+        self.isShared = json["is_shared"].boolValue
+        self.isCollected = json["is_fav"].boolValue
+        self.time = json["upload_time"].stringValue.dateFromISO8601 ?? Date()
+        
+        self.getImageRequest = Alamofire.request(Server.baseUrl + "/" + self.imageFilePath, method: .get)
+    }
+    
+    private var getImageRequest:DataRequest?
+    
+    mutating func getImage(completion:@escaping ((Bool,Data?)->Void)) {
+        getImageRequest?.responseData { (response) in
+            switch response.result {
+            case .success(let value):
+                completion(true,value)
+            case .failure(_):
+                completion(false,nil)
+            }
+        }
+    }
+    
+    mutating func cancelReuquest(){
+        getImageRequest?.cancel()
+    }
+    
+    mutating func UpdateChangedValue(_ newValue:TmpCardo){
+        self.title = newValue.title
+        self.description = newValue.descripition
+        self.isShared = newValue.isShared
+        self.isCollected = newValue.isCollected
+        // TODO: 请求服务器
+    }
+    
+    mutating func delete(){
+        // TODO: 请求服务器
+    }
+}
+
+struct TmpCardo {
+    let title:String
+    let descripition:String
+    let isShared:Bool
+    let isCollected:Bool
+}
+
+struct Day_Cardo {
+    var cardos:[CardoS] = []
+    var date:Date
+    
+    var collectedCardo:[CardoS] {
+        return cardos.filter({ (cardo) -> Bool in
+            return cardo.isCollected
+        })
+    }
+    
+    mutating func insertCardo(_ cardo:CardoS) {
+        cardos.append(cardo)
+    }
+    
+    mutating func addCardo(_ cardo:CardoS){
+        cardos.append(cardo)
+        
+        //TODO:新增 Cardo 网络请求
+    }
+    
+    mutating func removeCardo(_ indexs:[Int]){
+        for i in indexs {
+            cardos[i].delete()
+            cardos[i].cancelReuquest()
+        }
+        
+        cardos = cardos.enumerated()
+            .filter { (offset,_) -> Bool in
+                return !indexs.contains(offset)
+            }
+            .map { (_,cardo) -> CardoS in
+                return cardo
+        }
+    }
+    
+    init(date:Date) {
+        self.date = date
+    }
+}
+////////
 class Cardo {
     let photoId:Int
     //
@@ -71,20 +195,6 @@ class Cardo {
         self.imageData = imageData ?? Data()
     }
     
-//    init(json : JSON) {
-//        self.photoId = json["photo_id"].intValue
-//        self.fileUserId = json["file_user_id"].intValue
-//        self.fileUserNickname = json["nickname"].stringValue
-//        self.filename = json["file_name"].stringValue
-//        self.latitude = json["latitude"].doubleValue
-//        self.longitude = json["longitude"].doubleValue
-//        self.title = json["title"].stringValue
-//        self.description = json["description"].stringValue
-//        self.isShared = json["is_shared"].boolValue
-//        self.isCollected = json["is_fav"].boolValue
-//        self.time = json["upload_time"].stringValue
-//    }
-    
     init(json : JSON, imageData : Data) {
         self.photoId = json["photo_id"].intValue
         self.fileUserId = json["file_user_id"].intValue
@@ -100,7 +210,7 @@ class Cardo {
         self.imageData = imageData
     }
 }
-
+/////////
 extension Cardo {
     var locatation:CLLocationCoordinate2D {
         get{
@@ -119,5 +229,6 @@ extension Cardo {
             return ann
         }
     }
+    
 }
 

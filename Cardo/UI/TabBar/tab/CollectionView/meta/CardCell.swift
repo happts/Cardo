@@ -9,19 +9,16 @@
 import UIKit
 
 class CardCell: UICollectionViewCell {
-    @IBOutlet private weak var BackgroundImageView: UIImageView! {
-        didSet {
-            
-
-        }
-    }
-    
+    @IBOutlet private weak var BackgroundImageView: UIImageView!
     @IBOutlet private weak var CollectImageView: UIImageView!
     @IBOutlet private weak var ShareImageView: UIImageView!
+    @IBOutlet private weak var SelectImageView: UIImageView!
     
     @IBOutlet private weak var NameLabel: UILabel!
     
-    var index:IndexPath!
+    var sectionViewModel:SectionViewModel?
+    var cardoId:Int?
+    var indexPath:IndexPath!
     
     var name:String {
         get {
@@ -36,20 +33,6 @@ class CardCell: UICollectionViewCell {
     var image:UIImage? {
         set {
             BackgroundImageView.image = newValue
-            
-//            UIGraphicsBeginImageContextWithOptions(BackgroundImageView.bounds.size, true, 0)
-//            let ctx = UIGraphicsGetCurrentContext()
-//            UIColor.clear.setFill()
-//            UIRectFill(BackgroundImageView.bounds)
-//            let rect = CGRect(x: 0, y: 0, width: BackgroundImageView.bounds.size.width, height: BackgroundImageView.bounds.size.height)
-//            
-//            ctx?.addEllipse(in: rect)
-//            ctx?.clip()
-//            
-//            BackgroundImageView.draw(BackgroundImageView.bounds)
-//            BackgroundImageView.image = UIGraphicsGetImageFromCurrentImageContext()
-//            UIGraphicsEndImageContext()
-            
         }
         
         get {
@@ -69,30 +52,23 @@ class CardCell: UICollectionViewCell {
         }
     }
     
+    var hasEdited = false
+    
+    // TODO :可能要修改
     override var isSelected: Bool {
         didSet {
             if editState {
                 if isSelected {
-                    self.ShareImageView.image = UIImage(named: "Selected_Cell")
+                    self.SelectImageView.image = UIImage(named: "Selected_Cell")
                 }else {
-                    self.ShareImageView.image = UIImage(named: "UnSelect_Cell")
+                    self.SelectImageView.image = UIImage(named: "UnSelect_Cell")
                 }
             }
         }
     }
     
-    var editState = false {
-        didSet {
-            self.CollectImageView.isHidden = editState
-            if editState {
-                self.CollectImageView.isHidden = true
-                self.ShareImageView.isHidden = false
-                self.ShareImageView.image = UIImage(named: "UnSelect_Cell")
-            }else {
-                self.CollectImageView.isHidden = !self.isCollected
-                self.ShareImageView.image = UIImage(named: "分享")
-            }
-        }
+    var editState:Bool {
+        return sectionViewModel?.editState ?? false
     }
     
     
@@ -104,17 +80,62 @@ class CardCell: UICollectionViewCell {
     
     @objc func presa() {
         print("long press")
-//        longpressAction()
+        //        longpressAction()
     }
-
     
-    func setCardCell(cardo:Cardo,index:IndexPath) {
-        self.index = index
-        self.name = cardo.title
-        self.image = UIImage(data: cardo.imageData)
-        self.isShared = cardo.isShared
-        self.isCollected = cardo.isCollected
+    
+    func setCardCell(cardoPoint:UnsafeMutablePointer<CardoS>,index:IndexPath) {
+        self.indexPath = index
+        self.name = cardoPoint.pointee.title
+        
+        if let imagedata = cardoPoint.pointee.imageData {
+            self.image = UIImage(data: imagedata)
+        }else {
+            self.image = nil
+        }
+        
+        self.isShared = cardoPoint.pointee.isShared
+        self.isCollected = cardoPoint.pointee.isCollected
         //
-        self.editState = cardo.editState
+        //        self.editState = false
+    }
+    
+    func bindCell(sectionViewModel:SectionViewModel,index:IndexPath) {
+        sectionViewModel.data.cardos[index.item].cell = self
+        
+        self.cardoId = sectionViewModel.data.cardos[index.item].id
+        self.sectionViewModel = sectionViewModel
+        self.indexPath = index
+        
+        self.name = self.sectionViewModel!.data.cardos[indexPath.item].title
+        
+        if let imageData = sectionViewModel.data.cardos[indexPath.item].imageData {
+            self.image = UIImage(data: imageData)
+        }else {
+            self.image = nil
+            let cardoId = sectionViewModel.data.cardos[index.item].id
+            sectionViewModel.data.cardos[index.item].getImage { (result, data) in
+                // 注意这里是是异步操作,绑定会有不匹配的情况, 临时存一下当前 id
+                if result && cardoId == self.cardoId {
+                    self.image = UIImage(data: data!)
+                }
+            }
+        }
+        
+        changeState()
+    }
+    
+    func changeState() {
+        // TODO: 完善
+        if editState {
+            self.CollectImageView.isHidden = true
+            self.ShareImageView.isHidden = true
+            self.SelectImageView.isHidden = false
+        }else {
+            self.SelectImageView.isHidden = true
+            // FIXME: index out of range
+            self.isShared = self.sectionViewModel!.data.cardos[self.indexPath.item].isShared
+            self.isCollected = sectionViewModel!.data.cardos[indexPath.item].isCollected
+        }
     }
 }

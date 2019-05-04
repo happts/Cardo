@@ -11,7 +11,6 @@
 		3498A8DE214B605E86EF0ED1 /* Pods_CardoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7741DDB507CD4979B8887FA /* Pods_CardoTests.framework */; };
 		A078542988D7A2E1BCF0A88B /* Pods_Cardo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C3FEA19ADC4C2E12449A96 /* Pods_Cardo.framework */; };
 		A90A035B2238FA9900FE5AE6 /* Cardo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90A035A2238FA9900FE5AE6 /* Cardo.swift */; };
-		A923A8072226BF3100950D71 /* CardoCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A923A8062226BF3100950D71 /* CardoCollectionHeaderView.swift */; };
 		A923A80D2226D27900950D71 /* CardoPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A923A80C2226D27900950D71 /* CardoPointView.swift */; };
 		A923A80F2226D29000950D71 /* CardoPointView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A923A80E2226D29000950D71 /* CardoPointView.xib */; };
 		A9326296224521C2003D3B6A /* MyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9326295224521C2003D3B6A /* MyRequest.swift */; };
@@ -24,6 +23,12 @@
 		A95DA4B121F46A270039998D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95DA4AF21F46A270039998D /* LaunchScreen.storyboard */; };
 		A95DA4BC21F46A270039998D /* CardoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95DA4BB21F46A270039998D /* CardoTests.swift */; };
 		A95DA4C721F46A270039998D /* CardoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95DA4C621F46A270039998D /* CardoUITests.swift */; };
+		A9640994227DE5D900208C7F /* CardoCollectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A964098F227DE5D900208C7F /* CardoCollectionFooterView.swift */; };
+		A9640995227DE5D900208C7F /* CardoCollectionHeaderAndFooterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9640990227DE5D900208C7F /* CardoCollectionHeaderAndFooterProtocol.swift */; };
+		A9640996227DE5D900208C7F /* CardoCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9640991227DE5D900208C7F /* CardoCollectionHeaderView.swift */; };
+		A9640997227DE5D900208C7F /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9640992227DE5D900208C7F /* CollectionViewModel.swift */; };
+		A9640998227DE5D900208C7F /* SectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9640993227DE5D900208C7F /* SectionViewModel.swift */; };
+		A964099A227DE6DF00208C7F /* Day_Cardos_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9640999227DE6DF00208C7F /* Day_Cardos_Model.swift */; };
 		A99DA24722213F590055DB55 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99DA24622213F590055DB55 /* CameraViewController.swift */; };
 		A99DA24922213FF30055DB55 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99DA24822213FF30055DB55 /* LoginViewController.swift */; };
 		A99DA24B222143460055DB55 /* MapCardosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99DA24A222143460055DB55 /* MapCardosViewController.swift */; };
@@ -39,12 +44,9 @@
 		A9B7516E223916570016853D /* CardoAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7516D223916570016853D /* CardoAnnotationView.swift */; };
 		A9C1E131224D9ECB001D6D68 /* CardosOfDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C1E130224D9ECB001D6D68 /* CardosOfDate.swift */; };
 		A9C27A0B22017B2700D2C773 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C27A0A22017B2700D2C773 /* CollectionViewController.swift */; };
-		A9C2A03F2247BD81009EE45A /* Day_Cardos.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C2A03E2247BD81009EE45A /* Day_Cardos.swift */; };
 		A9C745A622421CC600B310C1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C745A522421CC600B310C1 /* User.swift */; };
-		A9C745A8224224D600B310C1 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C745A7224224D600B310C1 /* CollectionViewModel.swift */; };
 		A9EDD6C52227EAC0007CD25A /* CardoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EDD6C32227EAC0007CD25A /* CardoViewController.swift */; };
 		A9EDD6C62227EAC0007CD25A /* CardoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9EDD6C42227EAC0007CD25A /* CardoViewController.xib */; };
-		A9F22B3F222D5B89004622C1 /* CardoCollectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F22B3E222D5B89004622C1 /* CardoCollectionFooterView.swift */; };
 		A9F79ACC2231411D00BF46A3 /* MyPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F79ACB2231411D00BF46A3 /* MyPopView.swift */; };
 		A9F79ACE2231414800BF46A3 /* MyPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9F79ACD2231414800BF46A3 /* MyPopView.xib */; };
 		B7038558CD7FF3D2587BF3C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7038619A16F00AEFA98F97E /* ViewController.swift */; };
@@ -71,7 +73,6 @@
 		0F07BB50A3505D0A35EEBFDB /* Pods_CardoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CardoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95C3FEA19ADC4C2E12449A96 /* Pods_Cardo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cardo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A90A035A2238FA9900FE5AE6 /* Cardo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardo.swift; sourceTree = "<group>"; };
-		A923A8062226BF3100950D71 /* CardoCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardoCollectionHeaderView.swift; sourceTree = "<group>"; };
 		A923A80C2226D27900950D71 /* CardoPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardoPointView.swift; sourceTree = "<group>"; };
 		A923A80E2226D29000950D71 /* CardoPointView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardoPointView.xib; sourceTree = "<group>"; };
 		A9326295224521C2003D3B6A /* MyRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRequest.swift; sourceTree = "<group>"; };
@@ -91,6 +92,12 @@
 		A95DA4C221F46A270039998D /* CardoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A95DA4C621F46A270039998D /* CardoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardoUITests.swift; sourceTree = "<group>"; };
 		A95DA4C821F46A270039998D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A964098F227DE5D900208C7F /* CardoCollectionFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardoCollectionFooterView.swift; sourceTree = "<group>"; };
+		A9640990227DE5D900208C7F /* CardoCollectionHeaderAndFooterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardoCollectionHeaderAndFooterProtocol.swift; sourceTree = "<group>"; };
+		A9640991227DE5D900208C7F /* CardoCollectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardoCollectionHeaderView.swift; sourceTree = "<group>"; };
+		A9640992227DE5D900208C7F /* CollectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
+		A9640993227DE5D900208C7F /* SectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionViewModel.swift; sourceTree = "<group>"; };
+		A9640999227DE6DF00208C7F /* Day_Cardos_Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day_Cardos_Model.swift; sourceTree = "<group>"; };
 		A99DA24622213F590055DB55 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		A99DA24822213FF30055DB55 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A99DA24A222143460055DB55 /* MapCardosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCardosViewController.swift; sourceTree = "<group>"; };
@@ -106,12 +113,9 @@
 		A9B7516D223916570016853D /* CardoAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardoAnnotationView.swift; sourceTree = "<group>"; };
 		A9C1E130224D9ECB001D6D68 /* CardosOfDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardosOfDate.swift; sourceTree = "<group>"; };
 		A9C27A0A22017B2700D2C773 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
-		A9C2A03E2247BD81009EE45A /* Day_Cardos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day_Cardos.swift; sourceTree = "<group>"; };
 		A9C745A522421CC600B310C1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		A9C745A7224224D600B310C1 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		A9EDD6C32227EAC0007CD25A /* CardoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardoViewController.swift; sourceTree = "<group>"; };
 		A9EDD6C42227EAC0007CD25A /* CardoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardoViewController.xib; sourceTree = "<group>"; };
-		A9F22B3E222D5B89004622C1 /* CardoCollectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardoCollectionFooterView.swift; sourceTree = "<group>"; };
 		A9F79ACB2231411D00BF46A3 /* MyPopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPopView.swift; sourceTree = "<group>"; };
 		A9F79ACD2231414800BF46A3 /* MyPopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPopView.xib; sourceTree = "<group>"; };
 		B4480B873E2F3A58A67B290A /* Pods-CardoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CardoTests/Pods-CardoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -190,10 +194,10 @@
 		A923A8052226BEFF00950D71 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				A9640999227DE6DF00208C7F /* Day_Cardos_Model.swift */,
+				A964098E227DE5D900208C7F /* metaS */,
 				A9393A642223E39600FE8329 /* meta */,
 				A9C27A0A22017B2700D2C773 /* CollectionViewController.swift */,
-				A9C745A7224224D600B310C1 /* CollectionViewModel.swift */,
-				A9C2A03E2247BD81009EE45A /* Day_Cardos.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -234,8 +238,6 @@
 			children = (
 				A9B3EAAE2223DF8A002A387D /* CardCell.swift */,
 				A9B3EAAF2223DF8A002A387D /* CardCell.xib */,
-				A923A8062226BF3100950D71 /* CardoCollectionHeaderView.swift */,
-				A9F22B3E222D5B89004622C1 /* CardoCollectionFooterView.swift */,
 				A9F79ACB2231411D00BF46A3 /* MyPopView.swift */,
 				A9F79ACD2231414800BF46A3 /* MyPopView.xib */,
 			);
@@ -296,6 +298,18 @@
 				A95DA4C821F46A270039998D /* Info.plist */,
 			);
 			path = CardoUITests;
+			sourceTree = "<group>";
+		};
+		A964098E227DE5D900208C7F /* metaS */ = {
+			isa = PBXGroup;
+			children = (
+				A964098F227DE5D900208C7F /* CardoCollectionFooterView.swift */,
+				A9640990227DE5D900208C7F /* CardoCollectionHeaderAndFooterProtocol.swift */,
+				A9640991227DE5D900208C7F /* CardoCollectionHeaderView.swift */,
+				A9640992227DE5D900208C7F /* CollectionViewModel.swift */,
+				A9640993227DE5D900208C7F /* SectionViewModel.swift */,
+			);
+			path = metaS;
 			sourceTree = "<group>";
 		};
 		A97DC08D2228198100B79196 /* Utils */ = {
@@ -606,23 +620,25 @@
 			files = (
 				A99DA24B222143460055DB55 /* MapCardosViewController.swift in Sources */,
 				A9B7516E223916570016853D /* CardoAnnotationView.swift in Sources */,
-				A923A8072226BF3100950D71 /* CardoCollectionHeaderView.swift in Sources */,
 				A9C1E131224D9ECB001D6D68 /* CardosOfDate.swift in Sources */,
+				A9640997227DE5D900208C7F /* CollectionViewModel.swift in Sources */,
 				A9B37DDD2227A9CB00117F96 /* AccountTableViewController.swift in Sources */,
 				A9EDD6C52227EAC0007CD25A /* CardoViewController.swift in Sources */,
 				A99DA24922213FF30055DB55 /* LoginViewController.swift in Sources */,
 				A9C27A0B22017B2700D2C773 /* CollectionViewController.swift in Sources */,
 				A9F79ACC2231411D00BF46A3 /* MyPopView.swift in Sources */,
 				A9B7516C2239123C0016853D /* CardoAnnotation.swift in Sources */,
+				A9640995227DE5D900208C7F /* CardoCollectionHeaderAndFooterProtocol.swift in Sources */,
+				A964099A227DE6DF00208C7F /* Day_Cardos_Model.swift in Sources */,
 				A9326298224522CF003D3B6A /* Server.swift in Sources */,
 				A99DA24722213F590055DB55 /* CameraViewController.swift in Sources */,
+				A9640996227DE5D900208C7F /* CardoCollectionHeaderView.swift in Sources */,
 				A95DA4A721F46A260039998D /* AppDelegate.swift in Sources */,
-				A9C2A03F2247BD81009EE45A /* Day_Cardos.swift in Sources */,
+				A9640994227DE5D900208C7F /* CardoCollectionFooterView.swift in Sources */,
+				A9640998227DE5D900208C7F /* SectionViewModel.swift in Sources */,
 				A9326296224521C2003D3B6A /* MyRequest.swift in Sources */,
-				A9C745A8224224D600B310C1 /* CollectionViewModel.swift in Sources */,
 				A9B3EAB02223DF8A002A387D /* CardCell.swift in Sources */,
 				A90A035B2238FA9900FE5AE6 /* Cardo.swift in Sources */,
-				A9F22B3F222D5B89004622C1 /* CardoCollectionFooterView.swift in Sources */,
 				B7038558CD7FF3D2587BF3C5 /* ViewController.swift in Sources */,
 				A9B37DDF2227B78300117F96 /* UIAlertUtils.swift in Sources */,
 				A923A80D2226D27900950D71 /* CardoPointView.swift in Sources */,

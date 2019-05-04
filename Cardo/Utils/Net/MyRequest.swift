@@ -219,13 +219,13 @@ struct Upload_Request : MyRequest {
                         let json = JSON(response.value as Any)
                         print(json)
                         responseMsg(json["words"].arrayValue[0].string ?? "sd",
-                            {
-                                var string = ""
-                                for s in json["words"].arrayValue {
-                                    string += s.string ?? ""
-                                }
-                                return string
-                            }()
+                                    {
+                                        var string = ""
+                                        for s in json["words"].arrayValue {
+                                            string += s.string ?? ""
+                                        }
+                                        return string
+                        }()
                         )
                     })
                 case .failure(let error):
@@ -256,6 +256,87 @@ struct Upload_Request : MyRequest {
             }
         }
     }
+}
+struct Request_GetCardoImage:MyRequest {
+    var path: String
+    
+    var method: HTTPMethod
+    
+    var parameters: [String : String]?
+    
+    init(fileName:String) {
+        self.path = Server.baseUrl + "/" + fileName
+        self.method = .get
+        self.parameters = nil
+    }
+    
+    func execute(point:UnsafeMutablePointer<CardoS>,completation:@escaping (Bool)->Void ) {
+        self.request().responseData { (response) in
+            switch response.result {
+            case .success(let value):
+                point.pointee.imageData = value
+                completation(true)
+            case .failure(_):
+                completation(false)
+                print("获取照片失败")
+            }
+        }
+    }
+}
+
+struct Request_GetCardos:MyRequest {
+    var path: String = Server.photoUrl
+    
+    var method: HTTPMethod = .get
+    
+    var parameters: [String : String]? = [:]
+    
+    enum ViewMode : String {
+        case view_favourite = "view_favourite"
+        case view_all = "view_all"
+        case nearby_self = "nearby_self"
+        case nearby_share = "nearby_share"
+        case view_all_date = "view_all_date"
+    }
+    
+    init(mode:ViewMode,userid:Int,limit:Int,offset:Int,longitude:Double?=nil,latitude:Double?=nil,range:Double?=nil,date:Date?=nil) {
+        self.parameters!["userid"] = String(userid)
+        self.parameters!["whose"] = mode.rawValue
+        self.parameters!["num"] = String(limit)
+        self.parameters!["offset"] = String(offset)
+        
+        if longitude != nil {
+            self.parameters!["lo"] = String(longitude!)
+            self.parameters!["la"] = String(latitude!)
+            self.parameters!["lo_r"] = String(range!)
+            self.parameters!["la_r"] = String(range!)
+        }
+        
+        if date != nil {
+            self.parameters!["date"] = date!.myDateString
+        }
+    }
+    
+    func execute(compleation:@escaping ([CardoS])->Void) {
+        self.request().responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value).arrayValue
+                var cardos:[CardoS] = []
+                for one in json {
+                    cardos.append(CardoS(json: one))
+                }
+                cardos.sort(by: { (c1, c2) -> Bool in
+                    return c1.time.compare(c2.time) == .orderedDescending
+                })
+                compleation(cardos)
+            case .failure(_):
+                compleation([])
+                print("获取cardos 失败")
+            }
+        }
+    }
+    
 }
 
 struct Cardo_Request : MyRequest {

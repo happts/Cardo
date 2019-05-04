@@ -20,7 +20,7 @@ class User {
     var isLogin : Bool = false
     
     //
-    var datas:[Day_Cardos] {
+    var datas:[Day_Cardos_Model] {
         get {
             return dicDayCardo.values.sorted(by: { (d1, d2) -> Bool in
                 return d1.dateS.dateFromMyFormat!.compare(d1.dateS.dateFromMyFormat!) == .orderedDescending
@@ -28,7 +28,7 @@ class User {
         }
     }
     
-    var dicDayCardo:[String:Day_Cardos] = [:]
+    var dicDayCardo:[String:Day_Cardos_Model] = [:]
     //
     
     static var instance = User()
@@ -59,7 +59,7 @@ class User {
             let cardotimeS = cardo.time.dateFromISO8601!.myDateString
             
             if !self.dicDayCardo.keys.contains(cardotimeS) {
-                let daycardos = Day_Cardos()
+                let daycardos = Day_Cardos_Model()
                 daycardos.dateS = cardotimeS
                 daycardos.cardos = [cardo]
                 self.dicDayCardo[cardotimeS] = daycardos
@@ -76,6 +76,7 @@ class User {
             }
         }
     }
+    
     
     func cardoOR(imageData:Data,longitude:Double,latitude:Double,completation:@escaping ((String,String)->Void)) {
         Upload_Request(image: imageData, longitude: longitude, latitude: latitude, time: Date()).execute { (msg, words) in
