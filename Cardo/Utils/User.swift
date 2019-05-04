@@ -19,7 +19,7 @@ class User {
     
     var isLogin : Bool = false
     
-    //
+    // FIXME: delete after nextversion
     var datas:[Day_Cardos_Model] {
         get {
             return dicDayCardo.values.sorted(by: { (d1, d2) -> Bool in
@@ -27,9 +27,13 @@ class User {
             })
         }
     }
-    
+    // FIXME: delete after nextVersion
     var dicDayCardo:[String:Day_Cardos_Model] = [:]
     //
+    var myCardosDic:[Int:CardoS] = [:]
+    var myCardos:[CardoS] {
+        return Array(myCardosDic.values)
+    }
     
     static var instance = User()
     
@@ -53,29 +57,29 @@ class User {
     }
     
     ///"2019-02-27"
-    func getCardos(byDateString dateS:String ,responseOneCardo:@escaping ((Cardo)->Void), completation:@escaping ((Bool,String)->Void)) {
-        
-        Cardo_Request(dateS: dateS).execute(responseCardo: { (cardo) in
-            let cardotimeS = cardo.time.dateFromISO8601!.myDateString
-            
-            if !self.dicDayCardo.keys.contains(cardotimeS) {
-                let daycardos = Day_Cardos_Model()
-                daycardos.dateS = cardotimeS
-                daycardos.cardos = [cardo]
-                self.dicDayCardo[cardotimeS] = daycardos
-            }else {
-                self.dicDayCardo[cardotimeS]?.cardos.append(cardo)
-            }
-            
-            responseOneCardo(cardo)
-        }) { (isSuccess, erroInfo) in
-            if isSuccess {
-                completation(isSuccess,"")
-            }else {
-                completation(isSuccess,erroInfo)
-            }
-        }
-    }
+//    func getCardos(byDateString dateS:String ,responseOneCardo:@escaping ((Cardo)->Void), completation:@escaping ((Bool,String)->Void)) {
+//
+//        Cardo_Request(dateS: dateS).execute(responseCardo: { (cardo) in
+//            let cardotimeS = cardo.time.dateFromISO8601!.myDateString
+//
+//            if !self.dicDayCardo.keys.contains(cardotimeS) {
+//                let daycardos = Day_Cardos_Model()
+//                daycardos.dateS = cardotimeS
+//                daycardos.cardos = [cardo]
+//                self.dicDayCardo[cardotimeS] = daycardos
+//            }else {
+//                self.dicDayCardo[cardotimeS]?.cardos.append(cardo)
+//            }
+//
+//            responseOneCardo(cardo)
+//        }) { (isSuccess, erroInfo) in
+//            if isSuccess {
+//                completation(isSuccess,"")
+//            }else {
+//                completation(isSuccess,erroInfo)
+//            }
+//        }
+//    }
     
     
     func cardoOR(imageData:Data,longitude:Double,latitude:Double,completation:@escaping ((String,String)->Void)) {

@@ -197,6 +197,7 @@
 				A9640999227DE6DF00208C7F /* Day_Cardos_Model.swift */,
 				A964098E227DE5D900208C7F /* metaS */,
 				A9393A642223E39600FE8329 /* meta */,
+				A9640992227DE5D900208C7F /* CollectionViewModel.swift */,
 				A9C27A0A22017B2700D2C773 /* CollectionViewController.swift */,
 			);
 			path = CollectionView;
@@ -306,7 +307,6 @@
 				A964098F227DE5D900208C7F /* CardoCollectionFooterView.swift */,
 				A9640990227DE5D900208C7F /* CardoCollectionHeaderAndFooterProtocol.swift */,
 				A9640991227DE5D900208C7F /* CardoCollectionHeaderView.swift */,
-				A9640992227DE5D900208C7F /* CollectionViewModel.swift */,
 				A9640993227DE5D900208C7F /* SectionViewModel.swift */,
 			);
 			path = metaS;

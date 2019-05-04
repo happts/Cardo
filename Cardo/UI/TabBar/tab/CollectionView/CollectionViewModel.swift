@@ -54,17 +54,6 @@ class CollectionViewModel {
                     self.tmpIndex += 1
                 }
             }
-            
-//            for i in 0..<self.MyCardoViewModel.endIndex {
-//                for j in 0..<self.MyCardoViewModel[i].data.cardos.endIndex {
-//                    self.MyCardoViewModel[i].data.cardos[j].getImage(completion: { (result, imagedata) in
-//                        if result {
-//                            self.MyCardoViewModel[i].data.cardos[j].imageData = imagedata
-//                        }
-//                    })
-//                }
-//            }
-            
             completion()
         }
     }
