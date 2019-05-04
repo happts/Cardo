@@ -19,12 +19,7 @@ class CollectionViewController: UICollectionViewController {
         collectionView.reloadData()
     }
     
-    var data:[Day_Cardos] = []
-    var collectedData:[Day_Cardos] {
-        get {
-            return data.filter(){ $0.collectedCardos.count > 0}
-        }
-    }
+    var ViewModel:CollectionViewModel!
     
     let popview = MyPopView(frame: CGRect(x: 0, y: 0, width: 248, height: 110))
     
@@ -38,47 +33,27 @@ class CollectionViewController: UICollectionViewController {
         popview.isHidden = true
         self.view.addSubview(popview)
         
-        let longPressGes = UILongPressGestureRecognizer(target: self, action: #selector(test(sender:)))
+        let longPressGes = UILongPressGestureRecognizer(target: self, action: #selector(toCardoDetail(sender:)))
+        self.collectionView.addGestureRecognizer(longPressGes)
         
-        //
-        let section0 = Day_Cardos()
-        section0.date = "3月2日"
-        let cardo00 = Cardo(id: 0, title: "cardo00", subtitle: "sub00", image: UIImage(named: "bkg"), latitude: 10.0, longitude: 11.0, isShared: false, isCollected: false)
-        let cardo01 = Cardo(id: 1, title: "cardo01", subtitle: "sub01", image: UIImage(named: "bkg"), latitude: 11, longitude: 11, isShared: true, isCollected: false)
-        let cardo02 = Cardo(id: 2, title: "cardo02", subtitle: "sub02", image: UIImage(named: "bkg"), latitude: 11, longitude: 11, isShared: true, isCollected: true)
-        let cardo03 = Cardo(id: 3, title: "cardo03", subtitle: "sub03", image: UIImage(named: "bkg"), latitude: 11, longitude: 11, isShared: false, isCollected: true)
-        section0.cardos = [cardo00,cardo01,cardo02,cardo03]
-        section0.CollectionView = self.collectionView
-        section0.section = 0
-        data.append(section0)
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "refresh")
+        refreshControl.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
+        self.collectionView.refreshControl = refreshControl
         
-        let section1 = Day_Cardos()
-        section1.date = "3月3日"
-        section1.CollectionView = self.collectionView
-        section1.section = 1
-        data.append(section1)
-        
+        self.ViewModel = CollectionViewModel(self)
+        refreshControl.beginRefreshing()
+        refreshAction()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         if self.CardoSegmentedControl.selectedSegmentIndex == 0 {
-            return data.count
+            return ViewModel.cardosOfDays.count //data.count
         }else {
-            return data.filter(){ $0.collectedCardos.count > 0
-            }.count
+            return ViewModel.collectedCardosOfDays.count //collectedData.count
         }
         
     }
@@ -87,9 +62,9 @@ class CollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         if self.CardoSegmentedControl.selectedSegmentIndex == 0 {
-            return data[section].cardos.count
+            return ViewModel.cardosOfDays[section].cardos.count//data[section].cardos.count
         }else {
-            return data.filter(){ $0.collectedCardos.count > 0}[section].collectedCardos.count
+            return ViewModel.collectedCardosOfDays[section].collectedCardos.count//collectedData[section].collectedCardos.count
         }
         
     }
@@ -97,17 +72,19 @@ class CollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CardCell
         if self.CardoSegmentedControl.selectedSegmentIndex == 0 {
-            cell.setCardCell(cardo: data[indexPath.section].cardos[indexPath.row], index: indexPath)
+            cell.setCardCell(cardo: ViewModel.cardosOfDays[indexPath.section].cardos[indexPath.row], index: indexPath)
         }else {
-            cell.setCardCell(cardo: data.filter(){ $0.collectedCardos.count > 0}[indexPath.section].collectedCardos[indexPath.row], index: indexPath)
+            cell.setCardCell(cardo: ViewModel.collectedCardosOfDays[indexPath.section].collectedCardos[indexPath.row], index: indexPath)
         }
         // Configure the cell
         return cell
     }
     
+    //bind header and footer and section
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        let data = self.CardoSegmentedControl.selectedSegmentIndex == 0 ? self.data : self.data.filter(){$0.collectedCardos.count > 0}
+        let data = self.CardoSegmentedControl.selectedSegmentIndex == 0 ? ViewModel.cardosOfDays : ViewModel.collectedCardosOfDays
+        data[indexPath.section].section = indexPath.section
         
         if kind == UICollectionView.elementKindSectionHeader {
             let head = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headview", for: indexPath) as! CardoCollectionHeaderView
@@ -130,12 +107,11 @@ class CollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-//        /678/
         let cell = collectionView.cellForItem(at: indexPath) as! CardCell
-        if CardoSegmentedControl.selectedSegmentIndex == 0 {
-            cell.setCardCell(cardo: data[indexPath.section].cardos[indexPath.row], index: indexPath)
+        if self.CardoSegmentedControl.selectedSegmentIndex == 0 {
+            cell.setCardCell(cardo: ViewModel.cardosOfDays[indexPath.section].cardos[indexPath.row], index: indexPath)
         }else {
-            cell.setCardCell(cardo: data.filter(){$0.collectedCardos.count > 0}[indexPath.section].collectedCardos[indexPath.row], index: indexPath)
+            cell.setCardCell(cardo: ViewModel.collectedCardosOfDays[indexPath.section].collectedCardos[indexPath.row], index: indexPath)
         }
         
         
@@ -150,7 +126,7 @@ class CollectionViewController: UICollectionViewController {
         
         //默认状态
         let cell = collectionView.cellForItem(at: indexPath) as! CardCell
-        let data = self.CardoSegmentedControl.selectedSegmentIndex == 0 ? self.data : self.data.filter(){$0.collectedCardos.count > 0}
+        let data = self.CardoSegmentedControl.selectedSegmentIndex == 0 ? ViewModel.cardosOfDays : ViewModel.collectedCardosOfDays
         
         CardoSegmentedControl.selectedSegmentIndex == 0 ? cell.setCardCell(cardo: data[indexPath.section].cardos[indexPath.row], index: indexPath)
             : cell.setCardCell(cardo: data[indexPath.section].collectedCardos[indexPath.row], index: indexPath)
@@ -162,14 +138,26 @@ class CollectionViewController: UICollectionViewController {
         }else {
             cell.isSelected = true
         }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.collectionView.reloadData()
     }
 
-    @objc func test(sender:UILongPressGestureRecognizer) {
+    @objc func toCardoDetail(sender:UILongPressGestureRecognizer) {
+
         let itemIndexPath = collectionView.indexPathForItem(at: sender.location(in: self.collectionView))
         print(itemIndexPath?.section ?? -1)
         print(itemIndexPath?.row ?? -1)
+        if sender.state == .began {
+            let cardovc = CardoViewController()
+            cardovc.cardo = ViewModel.cardosOfDays[itemIndexPath!.section].cardos[itemIndexPath!.row]
+            self.navigationController?.pushViewController(cardovc, animated: true)
+        }
     }
 
-    
+    @objc func refreshAction(){
+        print("dd")
+        self.ViewModel.getCardos(byDate: "2019-02-27")
+    }
 }

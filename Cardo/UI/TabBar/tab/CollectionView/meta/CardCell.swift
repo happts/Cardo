@@ -9,7 +9,12 @@
 import UIKit
 
 class CardCell: UICollectionViewCell {
-    @IBOutlet private weak var BackgroundImageView: UIImageView!
+    @IBOutlet private weak var BackgroundImageView: UIImageView! {
+        didSet {
+            
+
+        }
+    }
     
     @IBOutlet private weak var CollectImageView: UIImageView!
     @IBOutlet private weak var ShareImageView: UIImageView!
@@ -31,6 +36,20 @@ class CardCell: UICollectionViewCell {
     var image:UIImage? {
         set {
             BackgroundImageView.image = newValue
+            
+//            UIGraphicsBeginImageContextWithOptions(BackgroundImageView.bounds.size, true, 0)
+//            let ctx = UIGraphicsGetCurrentContext()
+//            UIColor.clear.setFill()
+//            UIRectFill(BackgroundImageView.bounds)
+//            let rect = CGRect(x: 0, y: 0, width: BackgroundImageView.bounds.size.width, height: BackgroundImageView.bounds.size.height)
+//            
+//            ctx?.addEllipse(in: rect)
+//            ctx?.clip()
+//            
+//            BackgroundImageView.draw(BackgroundImageView.bounds)
+//            BackgroundImageView.image = UIGraphicsGetImageFromCurrentImageContext()
+//            UIGraphicsEndImageContext()
+            
         }
         
         get {
@@ -38,32 +57,26 @@ class CardCell: UICollectionViewCell {
         }
     }
     
-    var isShared:Bool {
-        get {
-            return !ShareImageView.isHidden
-        }
-        
-        set {
-            ShareImageView.isHidden = !newValue
+    var isShared:Bool = false {
+        didSet {
+            ShareImageView.isHidden = !isShared
         }
     }
     
-    var isCollected:Bool {
-        get {
-            return !CollectImageView.isHidden
-        }
-        
-        set {
-            CollectImageView.isHidden = !newValue
+    var isCollected:Bool = false {
+        didSet {
+            CollectImageView.isHidden = !isCollected
         }
     }
     
     override var isSelected: Bool {
         didSet {
-            if isSelected {
-                self.ShareImageView.image = UIImage(named: "Selected_Cell")
-            }else {
-                self.ShareImageView.image = UIImage(named: "UnSelect_Cell")
+            if editState {
+                if isSelected {
+                    self.ShareImageView.image = UIImage(named: "Selected_Cell")
+                }else {
+                    self.ShareImageView.image = UIImage(named: "UnSelect_Cell")
+                }
             }
         }
     }
@@ -72,19 +85,17 @@ class CardCell: UICollectionViewCell {
         didSet {
             self.CollectImageView.isHidden = editState
             if editState {
+                self.CollectImageView.isHidden = true
                 self.ShareImageView.isHidden = false
                 self.ShareImageView.image = UIImage(named: "UnSelect_Cell")
             }else {
+                self.CollectImageView.isHidden = !self.isCollected
                 self.ShareImageView.image = UIImage(named: "分享")
             }
         }
     }
     
     
-    
-//    var press = UILongPressGestureRecognizer(target: self, action: #selector(presa))
-    
-//    var longpressAction:(()->Void)!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -98,11 +109,12 @@ class CardCell: UICollectionViewCell {
 
     
     func setCardCell(cardo:Cardo,index:IndexPath) {
-        self.editState = cardo.editState
         self.index = index
         self.name = cardo.title
-        self.image = cardo.image
+        self.image = UIImage(data: cardo.imageData)
         self.isShared = cardo.isShared
         self.isCollected = cardo.isCollected
+        //
+        self.editState = cardo.editState
     }
 }

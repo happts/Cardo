@@ -18,7 +18,13 @@ class CardoCollectionHeaderView: UICollectionReusableView {
     
     var data:Day_Cardos! {
         didSet {
-            self.DateLabel.text = data.date
+            self.DateLabel.text = {
+                var s = data.dateS
+                for _ in 0...4 {
+                    s.removeFirst()
+                }
+                return s
+            }()
             self.EditState = data.editState
         }
     }

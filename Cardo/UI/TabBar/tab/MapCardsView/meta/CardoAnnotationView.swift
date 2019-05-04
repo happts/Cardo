@@ -11,6 +11,8 @@ import MapKit
 
 class CardoAnnotationView: MKAnnotationView {
     
+    var cardo:Cardo?
+    
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         self.canShowCallout = true

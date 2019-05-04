@@ -19,53 +19,53 @@ class MapCardosViewController: UIViewController,CLLocationManagerDelegate,MKMapV
     @IBAction func switchStateAction(_ sender: UISegmentedControl) {
         self.CardMapView.removeAnnotations(self.CardMapView.annotations)
         if sender.selectedSegmentIndex == 0 {
-            for cardo in mycardoList {
-                CardMapView.addAnnotation(cardo.pointAnnoation)
-            }
+
+            ViewModel.loadMyCardos()
             print("now is 0, My Cardo")
         }else {
             print("now is 1, Others Cardo")
-            for cardo in nearbyCardoList {
-                CardMapView.addAnnotation(cardo.pointAnnoation)
-            }
+            ViewModel.loadNearbyCardos()
         }
     }
     @IBOutlet weak var CardMapView: MKMapView!
     
     let locationManager = CLLocationManager()
+    var ViewModel:MapCardosViewModel!
     
-    var mycardoList:[Cardo] = []
-    var nearbyCardoList:[Cardo] = []
+//    var mycardoList:[Cardo] = []
+//    var nearbyCardoList:[Cardo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ViewModel = MapCardosViewModel(self)
         // Do any additional setup after loading the view.
         locationManager.delegate = self
-        PrivacyRequest.requestLocationPrivacy(locationManager: self.locationManager)
+        PrivacyRequest.requestLocationPrivacy(locationManager: self.locationManager, completation: nil)
         
         CardMapView.delegate = self
         CardMapView.mapType = .standard
         CardMapView.showsUserLocation = true
         CardMapView.userTrackingMode = .followWithHeading
         
-        testdata()
+//        testdata()
     }
     
-    func testdata() {
-        let a = Cardo(id: 0, title: "test1", subtitle: "test sub test", image: UIImage(named: "bkg"), latitude: 31.497438, longitude: 120.318628, isShared: true, isCollected: true)
-        self.mycardoList.append(a)
-        
-        let b = Cardo(id: 1, title: "test2", subtitle: "it is a story", image: UIImage(named: "bkg"), latitude: 31.497438, longitude: 120.318628, isShared: true, isCollected: true)
-        self.nearbyCardoList.append(b)
-    }
+//    func testdata() {
+//        let a = Cardo(id: 0, title: "test1", subtitle: "test sub test", image: UIImage(named: "bkg"), latitude: 31.497438, longitude: 120.318628, isShared: true, isCollected: true)
+//        self.mycardoList.append(a)
+//
+//        let b = Cardo(id: 1, title: "test2", subtitle: "it is a story", image: UIImage(named: "bkg"), latitude: 31.497438, longitude: 120.318628, isShared: true, isCollected: true)
+//        self.nearbyCardoList.append(b)
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         CardMapView.setRegion(MKCoordinateRegion(center: locationManager.location?.coordinate ?? CLLocationCoordinate2D(latitude: 31.497438, longitude: 120.318628), latitudinalMeters: 5000, longitudinalMeters: 5000), animated: true)
 
-        for cardo in mycardoList {
-            CardMapView.addAnnotation(cardo.pointAnnoation)
-        }
+        ViewModel.loadMyCardos()
+//        for cardo in mycardoList {
+//            CardMapView.addAnnotation(cardo.pointAnnoation)
+//        }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -84,19 +84,40 @@ class MapCardosViewController: UIViewController,CLLocationManagerDelegate,MKMapV
         
         pinView?.image = (annotation as! CardoAnnotation).pointViewImage
         
-        let imageview = UIImageView(image: (annotation as! CardoAnnotation).image)
-        imageview.frame.size = CGSize(width: 50, height: 50)
-        pinView?.leftCalloutAccessoryView = imageview
         
-        if self.MineOrOthersSegmentedControl.selectedSegmentIndex == 1 {
-//            let imageview = UIImageView(image: (annotation as! CardoAnnotation).image)
-//            imageview.frame.size = CGSize(width: 50, height: 50)
-//            pinView?.rightCalloutAccessoryView = imageview
-        }
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToCardoDetail(sender:)))
+//
+//        let imageview = UIImageView(image: (annotation as! CardoAnnotation).image)
+//        imageview.frame.size = CGSize(width: 50, height: 50)
+//        imageview.addGestureRecognizer(tapGesture)
+//        imageview.isUserInteractionEnabled = true
+        
+        let imgBtn = UIButton()
+        imgBtn.frame.size = CGSize(width: 50, height: 50)
+        imgBtn.setImage((annotation as! CardoAnnotation).image, for: .normal)
+        imgBtn.isUserInteractionEnabled = true
+        
+        pinView?.leftCalloutAccessoryView = imgBtn
+        
         
         return pinView
     }
     
+//    @objc func tapToCardoDetail(sender:UITapGestureRecognizer){
+//
+////        let cardo = ((sender.view?.superview as! MKAnnotationView).annotation as! CardoAnnotation).cardo!
+////        let vc = CardoViewController()
+////        vc.cardo = cardo
+////        self.navigationController?.pushViewController(vc, animated: true)
+//        print("tap tap")
+//    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let cardo = (view.annotation as! CardoAnnotation).cardo
+        let vc = CardoViewController()
+        vc.cardo = cardo
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     /*
     // MARK: - Navigation
 

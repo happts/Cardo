@@ -11,9 +11,23 @@ import ESTabBarController_swift
 
 class LoginViewController: UIViewController,UITabBarDelegate {
 
+    @IBOutlet weak var IndicatorView: UIActivityIndicatorView!
+    
+    @IBOutlet weak var LoginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        LoginButton.isEnabled = false
+        
+        User.instance.login { (islogin) in
+            self.IndicatorView.stopAnimating()
+            if islogin {
+                self.LoginButton.isEnabled = true
+            }else {
+                UIAlertUtils.alertControllerWithMessage(ViewController: self, message: "网络连接失败")
+            }
+        }
+        
         // Do any additional setup after loading the view.
     }
     

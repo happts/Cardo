@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardoViewController" customModule="Cardo" customModuleProvider="target">
+            <connections>
+                <outlet property="ActivittyIndicator" destination="gmA-kq-JLD" id="NIj-N9-WHC"/>
+                <outlet property="BottomToolbar" destination="qq8-MS-quy" id="3wx-Wb-dm4"/>
+                <outlet property="CollectButton" destination="UJy-BY-0yy" id="9Dv-5U-X9i"/>
+                <outlet property="DeleteButton" destination="HH3-ee-RP1" id="p5C-gX-Wm0"/>
+                <outlet property="ImageView" destination="XaB-fv-PH7" id="Tf3-YD-SVc"/>
+                <outlet property="NameLabel" destination="TgP-si-AOF" id="BDm-yk-3HR"/>
+                <outlet property="ResultTextView" destination="7YQ-3T-wBo" id="8sw-lj-F7V"/>
+                <outlet property="ShareButton" destination="7GZ-7v-iAK" id="79l-Rm-AKG"/>
+                <outlet property="StackView" destination="y4z-Hn-BpO" id="Ws3-IP-OVX"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xCS-Fy-u71">
+                    <rect key="frame" x="87.5" y="203.5" width="200" height="200"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bkg" translatesAutoresizingMaskIntoConstraints="NO" id="XaB-fv-PH7">
+                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="识别中..." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TgP-si-AOF">
+                            <rect key="frame" x="8" y="152.5" width="184" height="39.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="XaB-fv-PH7" firstAttribute="leading" secondItem="xCS-Fy-u71" secondAttribute="leading" id="6VX-ND-1ti"/>
+                        <constraint firstAttribute="trailing" secondItem="XaB-fv-PH7" secondAttribute="trailing" id="7lm-ce-obX"/>
+                        <constraint firstAttribute="width" constant="200" id="Qid-zt-fdU"/>
+                        <constraint firstAttribute="bottom" secondItem="XaB-fv-PH7" secondAttribute="bottom" id="Qwx-dR-fse"/>
+                        <constraint firstAttribute="height" constant="200" id="bxG-gv-cNX"/>
+                        <constraint firstAttribute="trailing" secondItem="TgP-si-AOF" secondAttribute="trailing" constant="8" id="fHf-Vw-4oJ"/>
+                        <constraint firstAttribute="bottom" secondItem="TgP-si-AOF" secondAttribute="bottom" constant="8" id="j19-xp-yYk"/>
+                        <constraint firstItem="XaB-fv-PH7" firstAttribute="top" secondItem="xCS-Fy-u71" secondAttribute="top" id="rBw-Ut-GkV"/>
+                        <constraint firstItem="TgP-si-AOF" firstAttribute="leading" secondItem="xCS-Fy-u71" secondAttribute="leading" constant="8" id="v47-8k-sCs"/>
+                    </constraints>
+                </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="识别中......" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7YQ-3T-wBo">
+                    <rect key="frame" x="8" y="411.5" width="359" height="219.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="y4z-Hn-BpO">
+                    <rect key="frame" x="8" y="72" width="359" height="38"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7GZ-7v-iAK" userLabel="分享">
+                            <rect key="frame" x="0.0" y="0.0" width="113" height="38"/>
+                            <state key="normal" title=" 已分享" image="Share_Header">
+                                <color key="titleColor" red="0.89019607840000003" green="0.74901960779999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="shareAction:" destination="-1" eventType="touchUpInside" id="rrI-wP-jvT"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJy-BY-0yy" userLabel="收藏">
+                            <rect key="frame" x="123" y="0.0" width="113" height="38"/>
+                            <state key="normal" title=" 已收藏" image="Collect_Header">
+                                <color key="titleColor" red="0.89019607840000003" green="0.74901960779999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="ShareAction:" destination="-1" eventType="touchUpInside" id="0sv-gb-aHW"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HH3-ee-RP1" userLabel="删除">
+                            <rect key="frame" x="246" y="0.0" width="113" height="38"/>
+                            <state key="normal" title=" 删除" image="Delete_Header">
+                                <color key="titleColor" red="0.89019607840000003" green="0.74901960779999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="DeleteAction:" destination="-1" eventType="touchUpInside" id="QBp-vk-u83"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="7GZ-7v-iAK" firstAttribute="width" secondItem="HH3-ee-RP1" secondAttribute="width" id="hSP-Qk-3xM"/>
+                        <constraint firstItem="7GZ-7v-iAK" firstAttribute="width" secondItem="UJy-BY-0yy" secondAttribute="width" id="uTU-9v-VSq"/>
+                    </constraints>
+                </stackView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qq8-MS-quy">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <items>
+                        <barButtonItem title="返回" id="zEU-aZ-Vg5">
+                            <connections>
+                                <action selector="CancelAction:" destination="-1" id="HcE-aB-AVX"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="b0h-oI-0H7"/>
+                        <barButtonItem title=" ---" id="7R4-GI-xsS" userLabel="---"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="wrf-dq-kvs"/>
+                        <barButtonItem title="确定" id="kbO-OP-aSI">
+                            <connections>
+                                <action selector="SaveAction:" destination="-1" id="8zJ-yq-CJO"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                    <color key="tintColor" red="0.89019607840000003" green="0.74901960779999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </toolbar>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gmA-kq-JLD">
+                    <rect key="frame" x="169" y="315" width="37" height="37"/>
+                    <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="7YQ-3T-wBo" firstAttribute="top" secondItem="xCS-Fy-u71" secondAttribute="bottom" constant="8" id="1i2-y2-OEh"/>
+                <constraint firstItem="7YQ-3T-wBo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="6fx-Jw-9bu"/>
+                <constraint firstItem="7YQ-3T-wBo" firstAttribute="bottom" secondItem="qq8-MS-quy" secondAttribute="top" constant="8" id="7Ln-fU-ySJ"/>
+                <constraint firstItem="y4z-Hn-BpO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ary-hO-Kmj"/>
+                <constraint firstItem="y4z-Hn-BpO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="D3O-QE-jqe"/>
+                <constraint firstItem="qq8-MS-quy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="HII-ou-Ju3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7YQ-3T-wBo" secondAttribute="trailing" constant="8" id="HaJ-6g-LiW"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="y4z-Hn-BpO" secondAttribute="trailing" constant="8" id="Llk-d7-Y6m"/>
+                <constraint firstItem="gmA-kq-JLD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="N3m-rp-9wD"/>
+                <constraint firstItem="y4z-Hn-BpO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="SNi-sc-v47"/>
+                <constraint firstItem="xCS-Fy-u71" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-30" id="UA7-PU-5VT"/>
+                <constraint firstItem="gmA-kq-JLD" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="avP-3z-Jts"/>
+                <constraint firstItem="xCS-Fy-u71" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="d3K-e7-i9r"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="qq8-MS-quy" secondAttribute="bottom" id="jwQ-Nv-7cS"/>
+                <constraint firstAttribute="trailing" secondItem="qq8-MS-quy" secondAttribute="trailing" id="vyt-P6-8ZI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="7YQ-3T-wBo" secondAttribute="bottom" priority="800" constant="36" id="whk-nF-9SS"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="-194.40000000000001" y="-24.7376311844078"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Collect_Header" width="38" height="38"/>
+        <image name="Delete_Header" width="38" height="38"/>
+        <image name="Share_Header" width="38" height="38"/>
+        <image name="bkg" width="88" height="88"/>
+    </resources>
+</document>
