@@ -21,6 +21,7 @@ class CardoViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     @IBOutlet weak var CollectButton: UIButton!
     @IBOutlet weak var DeleteButton: UIButton!
     
+    var SubmitBarButtonItem:UIBarButtonItem!
     
     @IBOutlet weak var ActivittyIndicator: UIActivityIndicatorView!
     
@@ -42,6 +43,9 @@ class CardoViewController: UIViewController,UIImagePickerControllerDelegate,UINa
             CollectButton.setImage(UIImage(named: "未收藏样式"), for: .normal)
             CollectButton.setTitle("收藏  ", for: .normal)
             
+            SubmitBarButtonItem = UIBarButtonItem(title: "提交", style: UIBarButtonItem.Style.done, target: self, action: #selector(SubmitAction))
+            self.navigationItem.rightBarButtonItem = SubmitBarButtonItem
+            
             if cardo.isShared {
                 ShareButton.isSelected = true
             }
@@ -52,7 +56,7 @@ class CardoViewController: UIViewController,UIImagePickerControllerDelegate,UINa
             //
             self.NameLabel.text = cardo.title
             self.ResultTextView.text = cardo.description
-            self.ImageView.image = UIImage(data: cardo.imageData)
+            self.ImageView.image = UIImage(data: cardo.imageData ?? Data())
         }else {
             StackView.removeFromSuperview()
         }
@@ -115,6 +119,13 @@ class CardoViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     @IBAction func SaveAction(_ sender: Any) {
         if photoResult {
             self.navigationController?.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    @objc func SubmitAction(){
+        print("you touched submit")
+        UIAlertUtils.alertControllerWithMessageAndChoice(ViewController: self, message: "确认提交修改?") { (_) in
+            print("Ok is touched")
         }
     }
     

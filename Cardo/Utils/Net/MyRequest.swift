@@ -95,8 +95,7 @@ struct Login_Request : MyRequest {
                 print(json)
                 if json["msg"].string == "ok" {
                     User.instance.setUserData(username: self.username, nickname: json["nickname"].string ?? "",
-                                              password: self.password, userid: json["userid"].int ?? 0)
-                    User.instance.isLogin = true
+                                              password: self.password, userid: json["userid"].int ?? 0).isLogin = true
                 }
                 response(json["msg"].string == "ok", json["nickname"].string ?? "", json["userid"].int ?? 0)
             case .failure( _ ):
@@ -270,7 +269,7 @@ struct Request_GetCardoImage:MyRequest {
         self.parameters = nil
     }
     
-    func execute(point:UnsafeMutablePointer<CardoS>,completation:@escaping (Bool)->Void ) {
+    func execute(point:UnsafeMutablePointer<Cardo>,completation:@escaping (Bool)->Void ) {
         self.request().responseData { (response) in
             switch response.result {
             case .success(let value):
@@ -317,14 +316,14 @@ struct Request_GetCardos:MyRequest {
         }
     }
     
-    func execute(compleation:@escaping ([CardoS])->Void) {
+    func execute(compleation:@escaping ([Cardo])->Void) {
         self.request().responseJSON { (response) in
             switch response.result {
             case .success(let value):
                 let json = JSON(value).arrayValue
-                var cardos:[CardoS] = []
+                var cardos:[Cardo] = []
                 for one in json {
-                    cardos.append(CardoS(json: one))
+                    cardos.append(Cardo(json: one))
                 }
                 cardos.sort(by: { (c1, c2) -> Bool in
                     return c1.time.compare(c2.time) == .orderedDescending
@@ -339,57 +338,57 @@ struct Request_GetCardos:MyRequest {
     
 }
 
-struct Cardo_Request : MyRequest {
-    var path: String = Server.baseUrl
-    var method: HTTPMethod = .get
-    var parameters: [String : String]?
-    
-    enum ViewMode : String {
-        case view_favourite = "view_favourite"
-        case view_all = "view_all"
-        case nearby_self = "nearby_self"
-        case nearby_share = "nearby_share"
-        case view_all_date = "view_all_date"
-    }
-    
-    init(dateS : String) {
-        self.parameters = ["whose" : ViewMode.view_all.rawValue, "date" : dateS]
-    }
-    
-    init(longitude: Double, longitudeOffset: Double, latitude: Double, latitudeOffset: Double, viewMode: ViewMode) {
-        self.parameters = ["whose": viewMode.rawValue, "lo": "\(longitude)", "la": "\(latitude)", "lo_r": "\(longitudeOffset)", "la_r": "\(latitudeOffset)"]
-    }
-    
-    func execute(responseCardo:@escaping ((Cardo) -> Void), completation:@escaping ((Bool,String)->Void)) {
-        Alamofire.request(Server.photoUrl, method: method, parameters: parameters).responseJSON { (response) in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                var count = json.array?.count ?? 0
-                
-                for cell in json.array ?? [] {
-                    
-                    Alamofire.request(self.path + "/" + cell["file_name"].string!, method: self.method).responseData(completionHandler: { (responseData) in
-                        switch responseData.result {
-                        case .success(let photo):
-                            responseCardo(Cardo(json: cell, imageData: photo))
-                        case .failure(let error):
-                            print(error)
-                        }
-                        count -= 1
-                        if !(count > 0) {
-                            completation(true,"")
-                        }
-                    })
-                    
-                }
-            case .failure(let error):
-                print(error)
-                completation(false,"\(error)")
-            }
-        }
-    }
-}
+//struct Cardo_Request : MyRequest {
+//    var path: String = Server.baseUrl
+//    var method: HTTPMethod = .get
+//    var parameters: [String : String]?
+//
+//    enum ViewMode : String {
+//        case view_favourite = "view_favourite"
+//        case view_all = "view_all"
+//        case nearby_self = "nearby_self"
+//        case nearby_share = "nearby_share"
+//        case view_all_date = "view_all_date"
+//    }
+//
+//    init(dateS : String) {
+//        self.parameters = ["whose" : ViewMode.view_all.rawValue, "date" : dateS]
+//    }
+//
+//    init(longitude: Double, longitudeOffset: Double, latitude: Double, latitudeOffset: Double, viewMode: ViewMode) {
+//        self.parameters = ["whose": viewMode.rawValue, "lo": "\(longitude)", "la": "\(latitude)", "lo_r": "\(longitudeOffset)", "la_r": "\(latitudeOffset)"]
+//    }
+//
+//    func execute(responseCardo:@escaping ((Cardo) -> Void), completation:@escaping ((Bool,String)->Void)) {
+//        Alamofire.request(Server.photoUrl, method: method, parameters: parameters).responseJSON { (response) in
+//            switch response.result {
+//            case .success(let value):
+//                let json = JSON(value)
+//                var count = json.array?.count ?? 0
+//
+//                for cell in json.array ?? [] {
+//
+//                    Alamofire.request(self.path + "/" + cell["file_name"].string!, method: self.method).responseData(completionHandler: { (responseData) in
+//                        switch responseData.result {
+//                        case .success(let photo):
+//                            responseCardo(Cardo(json: cell, imageData: photo))
+//                        case .failure(let error):
+//                            print(error)
+//                        }
+//                        count -= 1
+//                        if !(count > 0) {
+//                            completation(true,"")
+//                        }
+//                    })
+//
+//                }
+//            case .failure(let error):
+//                print(error)
+//                completation(false,"\(error)")
+//            }
+//        }
+//    }
+//}
 
 struct Delete_Request : MyRequest {
     var path: String = Server.deleteUrl

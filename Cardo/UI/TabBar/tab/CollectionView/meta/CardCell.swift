@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class CardCell: UICollectionViewCell {
     @IBOutlet private weak var BackgroundImageView: UIImageView!
@@ -84,7 +85,7 @@ class CardCell: UICollectionViewCell {
     }
     
     
-    func setCardCell(cardoPoint:UnsafeMutablePointer<CardoS>,index:IndexPath) {
+    func setCardCell(cardoPoint:UnsafeMutablePointer<Cardo>,index:IndexPath) {
         self.indexPath = index
         self.name = cardoPoint.pointee.title
         
@@ -113,15 +114,12 @@ class CardCell: UICollectionViewCell {
             self.image = UIImage(data: imageData)
         }else {
             self.image = nil
-            let cardoId = sectionViewModel.data.cardos[index.item].id
-            sectionViewModel.data.cardos[index.item].getImage { (result, data) in
-                // 注意这里是是异步操作,绑定会有不匹配的情况, 临时存一下当前 id
-                if result && cardoId == self.cardoId {
-                    self.image = UIImage(data: data!)
-                }
+            let item = index.item
+            sectionViewModel.data.cardos[item].getImage { (result, data) in
+               
             }
         }
-        
+        //
         changeState()
     }
     

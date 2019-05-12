@@ -23,6 +23,10 @@ class MyPopView: UIView {
         ContentView.layer.cornerRadius = 8
         addSubview(ContentView)
         
+        self.isUserInteractionEnabled = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        self.addGestureRecognizer(tapGesture)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -37,6 +41,10 @@ class MyPopView: UIView {
         let nib = UINib(nibName: String(describing:MyPopView.self), bundle: Bundle(for: self.classForCoder))
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         return view
+    }
+    
+    @objc func tapAction(){
+        self.isHidden = true
     }
 
 }

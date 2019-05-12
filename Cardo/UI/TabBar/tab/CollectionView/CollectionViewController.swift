@@ -45,6 +45,9 @@ class CollectionViewController: UICollectionViewController {
         refreshControl.beginRefreshing()
         refreshAction()
         
+        
+        // FIXME: UI 修改,移除转换
+        self.CardoSegmentedControl.isHidden = true
     }
     
     // MARK: UICollectionViewDataSource
@@ -118,11 +121,13 @@ class CollectionViewController: UICollectionViewController {
     
     @objc func toCardoDetail(sender:UILongPressGestureRecognizer) {
         
-        let itemIndexPath = collectionView.indexPathForItem(at: sender.location(in: self.collectionView))
-        print(itemIndexPath?.section ?? -9999)
-        print(itemIndexPath?.row ?? -9999)
+        
+        guard let itemIndexPath = collectionView.indexPathForItem(at: sender.location(in: self.collectionView)) else {
+            return
+        }
         if sender.state == .began {
             let cardovc = CardoViewController()
+            cardovc.cardo = ViewModel.MyCardoViewModel[itemIndexPath.section].data.cardos[itemIndexPath.item]
             self.navigationController?.pushViewController(cardovc, animated: true)
         }
     }

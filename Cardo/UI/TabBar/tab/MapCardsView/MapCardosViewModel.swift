@@ -12,21 +12,18 @@ import UIKit
 class MapCardosViewModel {
     weak var vc:MapCardosViewController?
     
-    var myCardos:[Cardo] {
-        get {
-            var cardos:[Cardo] = []
-            for day in User.instance.datas {
-                cardos += day.cardos
-            }
-            return cardos
-        }
-    }
+    var myCardos:[Cardo] = []
     
     var nearybyCardos:[Cardo] = []
     
     init(_ vc:MapCardosViewController) {
         self.vc = vc
-        testUse()
+        
+        User.instance.mapViewModel = self
+        
+        if let collectionmodel = User.instance.collectionViewModel {
+            let a =  collectionmodel.MyCardoViewModel.flatMap { $0.data.cardos  }
+        }
     }
     
     func loadMyCardos() {
@@ -43,13 +40,14 @@ class MapCardosViewModel {
             self.vc?.CardMapView.addAnnotation(cardo.pointAnnoation)
         }
     }
-    
-    func testUse()  {
-        let a = Cardo(id: 0, title: "test1", subtitle: "test sub test", image: UIImage(named: "bkg"), latitude: 31.497438, longitude: 120.318628, isShared: true, isCollected: true)
 
-        let b = Cardo(id: 1, title: "test2", subtitle: "it is a story", image: UIImage(named: "bkg"), latitude: 31.38, longitude: 120.28, isShared: true, isCollected: true)
-        
-        nearybyCardos += [a,b]
-    }
+    
+//    func testUse()  {
+//        let a = Cardo(id: 0, title: "test1", subtitle: "test sub test", image: UIImage(named: "bkg"), latitude: 31.497438, longitude: 120.318628, isShared: true, isCollected: true)
+//
+//        let b = Cardo(id: 1, title: "test2", subtitle: "it is a story", image: UIImage(named: "bkg"), latitude: 31.38, longitude: 120.28, isShared: true, isCollected: true)
+//
+//        nearybyCardos += [a,b]
+//    }
     
 }

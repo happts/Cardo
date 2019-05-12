@@ -9,10 +9,13 @@
 import UIKit
 
 class AccountTableViewController: UITableViewController {
-
+    @IBOutlet weak var HeadImageView: UIImageView!
+    @IBOutlet weak var NameLabel: UILabel!
+    @IBOutlet weak var MailLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.NameLabel.text = User.instance.nickname
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

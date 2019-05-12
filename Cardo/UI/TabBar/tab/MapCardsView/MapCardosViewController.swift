@@ -19,7 +19,6 @@ class MapCardosViewController: UIViewController,CLLocationManagerDelegate,MKMapV
     @IBAction func switchStateAction(_ sender: UISegmentedControl) {
         self.CardMapView.removeAnnotations(self.CardMapView.annotations)
         if sender.selectedSegmentIndex == 0 {
-
             ViewModel.loadMyCardos()
             print("now is 0, My Cardo")
         }else {
@@ -63,9 +62,6 @@ class MapCardosViewController: UIViewController,CLLocationManagerDelegate,MKMapV
         CardMapView.setRegion(MKCoordinateRegion(center: locationManager.location?.coordinate ?? CLLocationCoordinate2D(latitude: 31.497438, longitude: 120.318628), latitudinalMeters: 5000, longitudinalMeters: 5000), animated: true)
 
         ViewModel.loadMyCardos()
-//        for cardo in mycardoList {
-//            CardMapView.addAnnotation(cardo.pointAnnoation)
-//        }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -85,12 +81,7 @@ class MapCardosViewController: UIViewController,CLLocationManagerDelegate,MKMapV
         pinView?.image = (annotation as! CardoAnnotation).pointViewImage
         
         
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapToCardoDetail(sender:)))
-//
-//        let imageview = UIImageView(image: (annotation as! CardoAnnotation).image)
-//        imageview.frame.size = CGSize(width: 50, height: 50)
-//        imageview.addGestureRecognizer(tapGesture)
-//        imageview.isUserInteractionEnabled = true
+
         
         let imgBtn = UIButton()
         imgBtn.frame.size = CGSize(width: 50, height: 50)
@@ -103,14 +94,6 @@ class MapCardosViewController: UIViewController,CLLocationManagerDelegate,MKMapV
         return pinView
     }
     
-//    @objc func tapToCardoDetail(sender:UITapGestureRecognizer){
-//
-////        let cardo = ((sender.view?.superview as! MKAnnotationView).annotation as! CardoAnnotation).cardo!
-////        let vc = CardoViewController()
-////        vc.cardo = cardo
-////        self.navigationController?.pushViewController(vc, animated: true)
-//        print("tap tap")
-//    }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let cardo = (view.annotation as! CardoAnnotation).cardo
@@ -118,6 +101,7 @@ class MapCardosViewController: UIViewController,CLLocationManagerDelegate,MKMapV
         vc.cardo = cardo
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
     /*
     // MARK: - Navigation
 

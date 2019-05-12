@@ -13,6 +13,8 @@ class CollectionViewModel {
     
     init(_ viewController:CollectionViewController) {
         self.vc = viewController
+        
+        User.instance.collectionViewModel = self
     }
     
     var MyCardoViewModel:[SectionViewModel] = []
@@ -42,7 +44,6 @@ class CollectionViewModel {
             for cardo in cardos {
                 if let currentIndex = self.dic[cardo.date.myDateString]{
                     self.MyCardoViewModel[currentIndex].data.insertCardo(cardo)
-                    
                     self.vc?.collectionView.reloadSections([currentIndex])
                 }else {
                     self.dic[cardo.date.myDateString] = self.tmpIndex

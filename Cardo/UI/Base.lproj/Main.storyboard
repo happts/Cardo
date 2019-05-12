@@ -246,10 +246,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="我的" id="A9v-cg-IiW"/>
+                    <connections>
+                        <outlet property="HeadImageView" destination="ikK-NC-wUr" id="Wwd-bW-rTs"/>
+                        <outlet property="MailLabel" destination="jS4-es-YUl" id="Jd9-lG-STz"/>
+                        <outlet property="NameLabel" destination="mvQ-P1-J4r" id="Cr1-IW-nbs"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vYd-zY-4QC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-635" y="-304"/>
+            <point key="canvasLocation" x="-1106" y="-332"/>
         </scene>
         <!--Item-->
         <scene sceneID="zme-e3-7z3">
@@ -483,13 +488,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vDs-Lf-HZd">
                                 <rect key="frame" x="82.666666666666671" y="307" width="248.66666666666663" height="122"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="account" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XA6-ck-HN0">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="cardoteam" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XA6-ck-HN0">
                                         <rect key="frame" x="0.0" y="0.0" width="248.66666666666666" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="pswd" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gJQ-rz-GMk">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="super" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gJQ-rz-GMk">
                                         <rect key="frame" x="0.0" y="46" width="248.66666666666666" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -503,6 +508,9 @@
                                                 <state key="normal" title="注册">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="RegisterAction:" destination="DtY-iJ-bAY" eventType="touchUpInside" id="LXv-dq-cBr"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkV-mQ-7By">
                                                 <rect key="frame" x="128.33333333333331" y="0.0" width="120.33333333333331" height="30"/>
@@ -511,7 +519,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="bSj-NM-EKu" kind="show" id="Xvf-3u-BdG"/>
+                                                    <action selector="LoginAction:" destination="DtY-iJ-bAY" eventType="touchUpInside" id="S8q-Nm-fx5"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -527,7 +535,7 @@
                                     <constraint firstAttribute="width" secondItem="21O-BD-NlR" secondAttribute="height" multiplier="1:1" id="FH8-hQ-gDQ"/>
                                 </constraints>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Pmt-59-vAT">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Pmt-59-vAT">
                                 <rect key="frame" x="188.66666666666666" y="349.66666666666669" width="37" height="37"/>
                                 <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
@@ -546,8 +554,11 @@
                         <viewLayoutGuide key="safeArea" id="mEl-b5-Lao"/>
                     </view>
                     <connections>
+                        <outlet property="AccountTextFieldView" destination="XA6-ck-HN0" id="bAC-gx-Q3L"/>
                         <outlet property="IndicatorView" destination="Pmt-59-vAT" id="IHc-qR-hY9"/>
                         <outlet property="LoginButton" destination="nkV-mQ-7By" id="Uyz-4G-z2l"/>
+                        <outlet property="PasswordTextFieldView" destination="gJQ-rz-GMk" id="n9C-US-jRo"/>
+                        <segue destination="bSj-NM-EKu" kind="show" identifier="loginSuccess" id="PAT-WI-frH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DOh-Ga-ED7" userLabel="First Responder" sceneMemberID="firstResponder"/>
