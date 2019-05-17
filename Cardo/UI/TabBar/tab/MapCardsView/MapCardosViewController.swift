@@ -31,8 +31,6 @@ class MapCardosViewController: UIViewController,CLLocationManagerDelegate,MKMapV
     let locationManager = CLLocationManager()
     var ViewModel:MapCardosViewModel!
     
-//    var mycardoList:[Cardo] = []
-//    var nearbyCardoList:[Cardo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,8 +58,13 @@ class MapCardosViewController: UIViewController,CLLocationManagerDelegate,MKMapV
     
     override func viewWillAppear(_ animated: Bool) {
         CardMapView.setRegion(MKCoordinateRegion(center: locationManager.location?.coordinate ?? CLLocationCoordinate2D(latitude: 31.497438, longitude: 120.318628), latitudinalMeters: 5000, longitudinalMeters: 5000), animated: true)
-
-        ViewModel.loadMyCardos()
+        
+        if MineOrOthersSegmentedControl.selectedSegmentIndex == 0 {
+            ViewModel.loadMyCardos()
+        }else {
+            ViewModel.loadNearbyCardos()
+        }
+        
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -80,15 +83,13 @@ class MapCardosViewController: UIViewController,CLLocationManagerDelegate,MKMapV
         
         pinView?.image = (annotation as! CardoAnnotation).pointViewImage
         
-        
-
-        
-        let imgBtn = UIButton()
-        imgBtn.frame.size = CGSize(width: 50, height: 50)
-        imgBtn.setImage((annotation as! CardoAnnotation).image, for: .normal)
-        imgBtn.isUserInteractionEnabled = true
-        
-        pinView?.leftCalloutAccessoryView = imgBtn
+        pinView?.leftCalloutAccessoryView = {
+            let imgBtn = UIButton()
+            imgBtn.frame.size = CGSize(width: 50, height: 50)
+            imgBtn.setImage((annotation as! CardoAnnotation).image, for: .normal)
+            imgBtn.isUserInteractionEnabled = true
+            return imgBtn
+        }()
         
         
         return pinView

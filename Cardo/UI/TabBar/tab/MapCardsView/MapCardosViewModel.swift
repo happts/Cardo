@@ -8,11 +8,14 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class MapCardosViewModel {
     weak var vc:MapCardosViewController?
     
-    var myCardos:[Cardo] = []
+    var myCardos:[Cardo] {
+        return User.instance.collectionViewModel?.MyCardoViewModel.flatMap{ $0.data.cardos } ?? []
+    }
     
     var nearybyCardos:[Cardo] = []
     
@@ -20,10 +23,7 @@ class MapCardosViewModel {
         self.vc = vc
         
         User.instance.mapViewModel = self
-        
-        if let collectionmodel = User.instance.collectionViewModel {
-            let a =  collectionmodel.MyCardoViewModel.flatMap { $0.data.cardos  }
-        }
+//        testUse()
     }
     
     func loadMyCardos() {
@@ -41,6 +41,11 @@ class MapCardosViewModel {
         }
     }
 
+    func getMyCardosFromDB() {
+        let db = try! Realm()
+        
+        db.objects(CardoImage.self)
+    }
     
 //    func testUse()  {
 //        let a = Cardo(id: 0, title: "test1", subtitle: "test sub test", image: UIImage(named: "bkg"), latitude: 31.497438, longitude: 120.318628, isShared: true, isCollected: true)

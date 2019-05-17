@@ -245,12 +245,12 @@ struct Upload_Request : MyRequest {
                     upload.responseJSON(completionHandler: { (response) in
                         let json = JSON(response.value as Any)
                         print(json)
-                        responseMsg(json["title"].string ?? "", json["destination"].string ?? "")
+                        responseMsg(json["title"].stringValue, json["destination"].description)
                         //
                     })
                 case .failure(let error):
                     responseMsg(String(describing: error), "")
-                    //print(error)
+                
                 }
             }
         }
@@ -290,7 +290,7 @@ struct Request_GetCardos:MyRequest {
     
     var parameters: [String : String]? = [:]
     
-    enum ViewMode : String {
+    enum RequestMode : String {
         case view_favourite = "view_favourite"
         case view_all = "view_all"
         case nearby_self = "nearby_self"
@@ -298,7 +298,7 @@ struct Request_GetCardos:MyRequest {
         case view_all_date = "view_all_date"
     }
     
-    init(mode:ViewMode,userid:Int,limit:Int,offset:Int,longitude:Double?=nil,latitude:Double?=nil,range:Double?=nil,date:Date?=nil) {
+    init(mode:RequestMode,userid:Int,limit:Int,offset:Int,longitude:Double?=nil,latitude:Double?=nil,range:Double?=nil,date:Date?=nil) {
         self.parameters!["userid"] = String(userid)
         self.parameters!["whose"] = mode.rawValue
         self.parameters!["num"] = String(limit)
@@ -338,157 +338,38 @@ struct Request_GetCardos:MyRequest {
     
 }
 
-//struct Cardo_Request : MyRequest {
-//    var path: String = Server.baseUrl
-//    var method: HTTPMethod = .get
-//    var parameters: [String : String]?
-//
-//    enum ViewMode : String {
-//        case view_favourite = "view_favourite"
-//        case view_all = "view_all"
-//        case nearby_self = "nearby_self"
-//        case nearby_share = "nearby_share"
-//        case view_all_date = "view_all_date"
-//    }
-//
-//    init(dateS : String) {
-//        self.parameters = ["whose" : ViewMode.view_all.rawValue, "date" : dateS]
-//    }
-//
-//    init(longitude: Double, longitudeOffset: Double, latitude: Double, latitudeOffset: Double, viewMode: ViewMode) {
-//        self.parameters = ["whose": viewMode.rawValue, "lo": "\(longitude)", "la": "\(latitude)", "lo_r": "\(longitudeOffset)", "la_r": "\(latitudeOffset)"]
-//    }
-//
-//    func execute(responseCardo:@escaping ((Cardo) -> Void), completation:@escaping ((Bool,String)->Void)) {
-//        Alamofire.request(Server.photoUrl, method: method, parameters: parameters).responseJSON { (response) in
-//            switch response.result {
-//            case .success(let value):
-//                let json = JSON(value)
-//                var count = json.array?.count ?? 0
-//
-//                for cell in json.array ?? [] {
-//
-//                    Alamofire.request(self.path + "/" + cell["file_name"].string!, method: self.method).responseData(completionHandler: { (responseData) in
-//                        switch responseData.result {
-//                        case .success(let photo):
-//                            responseCardo(Cardo(json: cell, imageData: photo))
-//                        case .failure(let error):
-//                            print(error)
-//                        }
-//                        count -= 1
-//                        if !(count > 0) {
-//                            completation(true,"")
-//                        }
-//                    })
-//
-//                }
-//            case .failure(let error):
-//                print(error)
-//                completation(false,"\(error)")
-//            }
-//        }
-//    }
-//}
-
-struct Delete_Request : MyRequest {
-    var path: String = Server.deleteUrl
-    var method: HTTPMethod = .post
+struct UpdateCardo_Request : MyRequest {
+    var path: String
+    
+    var method: HTTPMethod
+    
     var parameters: [String : String]?
     
-    init(photoId : Int) {
-        parameters = ["photo_id" : "\(photoId)"]
+    enum Action {
+        case delete
+        case share
+        case unshare
+        case favourite
+        case unfavourite
     }
     
-    func execute(response:@escaping ((Bool) -> Void)) {
-        Alamofire.request(path, method: method, parameters: parameters).responseJSON { (responseJson) in
-            switch responseJson.result {
-            case .success(let value):
-                let json = JSON(value)
-                response(json["msg"].stringValue == "ok")
-            case .failure(let error):
-                response(false)
-                print(error)
-            }
+    init(action:Action,photoId: Int) {
+        parameters = ["photo_id" : "\(photoId)"]
+        method = .post
+        
+        switch action {
+        case .delete:
+            path = Server.deleteUrl
+            method = .delete
+        case .favourite:
+            path = Server.favouriteUrl
+        case .unfavourite:
+            path = Server.unfavouriteUrl
+        case .share:
+            path = Server.shareUrl
+        case .unshare:
+            path = Server.unshareUrl
         }
-    }
-}
-
-struct Share_Request : MyRequest {
-    var path: String = Server.shareUrl
-    var method: HTTPMethod = .post
-    var parameters: [String : String]?
-    
-    init(photoId : Int) {
-        parameters = ["photo_id" : "\(photoId)"]
-    }
-    
-    func execute(response:@escaping ((Bool) -> Void)) {
-        Alamofire.request(path, method: method, parameters: parameters).responseJSON { (responseJson) in
-            switch responseJson.result {
-            case .success(let value):
-                let json = JSON(value)
-                response(json["msg"].stringValue == "ok")
-            case .failure(let error):
-                response(false)
-                print(error)
-            }
-        }
-    }
-}
-
-struct Favourite_Request : MyRequest {
-    var path: String = Server.favouriteUrl
-    var method: HTTPMethod = .post
-    var parameters: [String : String]?
-    
-    init(photoId : Int) {
-        parameters = ["photo_id" : "\(photoId)"]
-    }
-    
-    func execute(response:@escaping ((Bool) -> Void)) {
-        Alamofire.request(path, method: method, parameters: parameters).responseJSON { (responseJson) in
-            switch responseJson.result {
-            case .success(let value):
-                let json = JSON(value)
-                response(json["msg"].stringValue == "ok")
-            case .failure(let error):
-                response(false)
-                print(error)
-            }
-        }
-    }
-}
-
-struct Unshare_Request : MyRequest {
-    var path: String = Server.unshareUrl
-    var method: HTTPMethod = .post
-    var parameters: [String : String]?
-    
-    init(photoId : Int) {
-        parameters = ["photo_id" : "\(photoId)"]
-    }
-    
-    func execute(response:@escaping ((Bool) -> Void)) {
-        Alamofire.request(path, method: method, parameters: parameters).responseJSON { (responseJson) in
-            switch responseJson.result {
-            case .success(let value):
-                let json = JSON(value)
-                response(json["msg"].stringValue == "ok")
-            case .failure(let error):
-                response(false)
-                print(error)
-            }
-        }
-    }
-}
-
-struct Unfavourite_Request : MyRequest {
-    var path: String = Server.unfavouriteUrl
-    var method: HTTPMethod = .post
-    var parameters: [String : String]?
-    
-    init(photoId : Int) {
-        parameters = ["photo_id" : "\(photoId)"]
     }
     
     func execute(response:@escaping ((Bool) -> Void)) {

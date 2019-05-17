@@ -74,10 +74,12 @@ class CardoViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         
     }
 
+    //分享
     @IBAction func shareAction(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
     }
     
+    //收藏
     @IBAction func ShareAction(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
     }
@@ -85,6 +87,7 @@ class CardoViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     @IBAction func DeleteAction(_ sender: UIButton) {
         UIAlertUtils.alertControllerDistructive(ViewController: self, message: "确认删除此 Cardo?") { (_) in
             //delete
+            self.cardo.delete()
         }
     }
     
@@ -109,7 +112,7 @@ class CardoViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         }
     }
     
-    
+    // MARK: photoresult
     @IBAction func CancelAction(_ sender: Any) {
         if photoResult {
             self.navigationController?.dismiss(animated: true, completion: nil)
@@ -125,7 +128,11 @@ class CardoViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     @objc func SubmitAction(){
         print("you touched submit")
         UIAlertUtils.alertControllerWithMessageAndChoice(ViewController: self, message: "确认提交修改?") { (_) in
-            print("Ok is touched")
+            self.cardo.isCollected = self.CollectButton.isSelected
+            self.cardo.isShared = self.ShareButton.isSelected
+            
+            self.navigationController?.popViewController(animated: true)
+
         }
     }
     

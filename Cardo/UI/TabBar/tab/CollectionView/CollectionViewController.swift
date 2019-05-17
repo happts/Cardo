@@ -65,6 +65,7 @@ class CollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CardCell
         cell.bindCell(sectionViewModel: ViewModel.MyCardoViewModel[indexPath.section], index: indexPath)
+        
         return cell
     }
     

@@ -42,8 +42,36 @@ class Cardo {
     var latitude:Double
     var longitude:Double
     
-    var isShared:Bool
-    var isCollected:Bool
+    var isShared:Bool {
+        didSet {
+            if isShared != oldValue {
+                if isShared {
+                    UpdateCardo_Request(action: .favourite, photoId: self.id).execute { (result) in
+                        print("分享\(result)")
+                    }
+                }else {
+                    UpdateCardo_Request(action: .unfavourite, photoId: self.id).execute { (result) in
+                        print("取消分享\(result)")
+                    }
+                }
+            }
+        }
+    }
+    var isCollected:Bool{
+        didSet {
+            if isCollected != oldValue {
+                if isCollected {
+                    UpdateCardo_Request(action: .favourite, photoId: self.id).execute { (result) in
+                        print("收藏\(result)")
+                    }
+                }else {
+                    UpdateCardo_Request(action: .unfavourite, photoId: self.id).execute { (result) in
+                        print("取消收藏\(result)")
+                    }
+                }
+            }
+        }
+    }
     
     weak var cell:CardCell?
     let getImageRequest:DataRequest?
@@ -126,6 +154,9 @@ class Cardo {
     
     func delete(){
         // TODO: 请求服务器
+        UpdateCardo_Request(action: .delete, photoId: self.id).execute { (result) in
+            print("删除\(result)")
+        }
     }
 }
 

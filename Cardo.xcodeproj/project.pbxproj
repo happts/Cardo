@@ -271,6 +271,7 @@
 				A95DA4AD21F46A270039998D /* Assets.xcassets */,
 				A9C745A522421CC600B310C1 /* User.swift */,
 				A90A035A2238FA9900FE5AE6 /* Cardo.swift */,
+				A9C745A4224218A000B310C1 /* Net */,
 				A9ED31BE2286C02A00857473 /* Model */,
 				A923A8042226BC7A00950D71 /* UI */,
 				A97DC08D2228198100B79196 /* Utils */,
@@ -316,7 +317,6 @@
 		A97DC08D2228198100B79196 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				A9C745A4224218A000B310C1 /* Net */,
 				A9B0ED792245EF2400E84E2D /* PrivacyRequest.swift */,
 				A9A523C822474F5600BF3115 /* FoundationExtension.swift */,
 				A9C1E130224D9ECB001D6D68 /* CardosOfDate.swift */,

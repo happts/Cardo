@@ -71,6 +71,7 @@ class CardoCollectionHeaderView: UICollectionReusableView,CardoCollectionHeaderA
         case .Delete:
             self.viewModel?.data.removeCardo(viewModel?.indexPathForSelectedItems.map{$0.item} ?? [])
             self.viewModel?.collectionViewModel?.vc?.collectionView.reloadSections([viewModel!.sectionIndex])
+
         case .StartEdit:
             self.viewModel?.deSelectItems()
             self.viewModel?.changeState()

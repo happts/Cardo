@@ -77,7 +77,7 @@
         <!--My Tab Bar Controller-->
         <scene sceneID="X0T-53-3bJ">
             <objects>
-                <tabBarController id="bSj-NM-EKu" customClass="MyTabBarController" customModule="Cardo" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController hidesBottomBarWhenPushed="YES" id="bSj-NM-EKu" customClass="MyTabBarController" customModule="Cardo" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Uue-ef-1fH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -254,7 +254,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vYd-zY-4QC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1106" y="-332"/>
+            <point key="canvasLocation" x="-648" y="-304"/>
         </scene>
         <!--Item-->
         <scene sceneID="zme-e3-7z3">

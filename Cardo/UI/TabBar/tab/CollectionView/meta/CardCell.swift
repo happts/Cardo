@@ -132,7 +132,7 @@ class CardCell: UICollectionViewCell {
         }else {
             self.SelectImageView.isHidden = true
             // FIXME: index out of range
-            self.isShared = self.sectionViewModel!.data.cardos[self.indexPath.item].isShared
+            self.isShared = sectionViewModel!.data.cardos[self.indexPath.item].isShared
             self.isCollected = sectionViewModel!.data.cardos[indexPath.item].isCollected
         }
     }

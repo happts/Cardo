@@ -25,7 +25,7 @@ class CollectionViewModel {
 
     var isShowingMyCardo = true
     
-    private var mode = Request_GetCardos.ViewMode.view_all
+    private var mode = Request_GetCardos.RequestMode.view_all
     private var limit = 10
     private var offset = 0
     

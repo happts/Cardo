@@ -41,6 +41,7 @@ class CardoR:Object {
         return "id"
     }
 }
+
 extension Cardo {
     var dbModel:CardoR {
         let row = CardoR()
@@ -61,15 +62,4 @@ extension Cardo {
     convenience init(row:CardoR) {
         self.init(id: row.id, fileUserid: row.fileUserID, time: row.time, title: row.title, description: row.CardoDescription, imageFilePath: row.imageFilePath, latitude: row.latitude, longitude: row.longitude,isShared:row.isShared,isCollected:row.isCollected,imageData:row.imageData)
     }
-}
-
-func testRealm() {
-    DispatchQueue(label: "db").async {
-        autoreleasepool(invoking: { () -> Void in
-            let db = try! Realm()
-            print(db.configuration.fileURL)
-            
-        })
-    }
-
 }
