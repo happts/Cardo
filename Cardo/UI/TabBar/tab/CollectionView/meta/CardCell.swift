@@ -84,23 +84,6 @@ class CardCell: UICollectionViewCell {
         //        longpressAction()
     }
     
-    
-    func setCardCell(cardoPoint:UnsafeMutablePointer<Cardo>,index:IndexPath) {
-        self.indexPath = index
-        self.name = cardoPoint.pointee.title
-        
-        if let imagedata = cardoPoint.pointee.imageData {
-            self.image = UIImage(data: imagedata)
-        }else {
-            self.image = nil
-        }
-        
-        self.isShared = cardoPoint.pointee.isShared
-        self.isCollected = cardoPoint.pointee.isCollected
-        //
-        //        self.editState = false
-    }
-    
     func bindCell(sectionViewModel:SectionViewModel,index:IndexPath) {
         sectionViewModel.data.cardos[index.item].cell = self
         
@@ -110,14 +93,8 @@ class CardCell: UICollectionViewCell {
         
         self.name = self.sectionViewModel!.data.cardos[indexPath.item].title
         
-        if let imageData = sectionViewModel.data.cardos[indexPath.item].imageData {
-            self.image = UIImage(data: imageData)
-        }else {
-            self.image = nil
-            let item = index.item
-            sectionViewModel.data.cardos[item].getImage { (result, data) in
-               
-            }
+        if let imagedata = sectionViewModel.data.cardos[index.item].imageData {
+            self.image = UIImage(data: imagedata)
         }
         //
         changeState()

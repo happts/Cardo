@@ -27,29 +27,45 @@ class AccountTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 3
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        switch section {
-        case 0:
-            return 1
-        case 1:
-            return 2
-        case 2:
-            return 1
-        default:
-            return 0
-        }
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 3
+//    }
+//
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        switch section {
+//        case 0:
+//            return 1
+//        case 1:
+//            return 2
+//        case 2:
+//            return 1
+//        default:
+//            return 0
+//        }
+//    }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        //logout
         if indexPath.section == 2 {
             self.navigationController?.tabBarController?.dismiss(animated: true, completion: nil)
+        }
+        
+        
+        if indexPath.section == 1 {
+            switch indexPath.row {
+            case 0:
+                print("已购项目")
+            case 1:
+                print("恢复购买")
+            case 2:
+                print("清空缓存")
+                DBHelper.instance.deleteAll()
+            default:
+                print("nothing")
+            }
         }
         
     }

@@ -377,6 +377,7 @@ struct UpdateCardo_Request : MyRequest {
             switch responseJson.result {
             case .success(let value):
                 let json = JSON(value)
+                print(json)
                 response(json["msg"].stringValue == "ok")
             case .failure(let error):
                 response(false)

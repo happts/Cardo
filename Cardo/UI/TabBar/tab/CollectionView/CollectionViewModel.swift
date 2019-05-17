@@ -32,10 +32,11 @@ class CollectionViewModel {
     private var dic:[String:Int] = [:]
     private var tmpIndex = 0
     
-    func getCardos(completion:@escaping (()->Void)) {
+    func getCardos(completion:@escaping ((Int)->Void)) {
         Request_GetCardos(mode: .view_all, userid: User.instance.userid, limit: limit, offset: offset).execute { (cardos) in
             
             if cardos.count == 0 {
+                completion(cardos.count)
                 return
             }
             
@@ -55,7 +56,7 @@ class CollectionViewModel {
                     self.tmpIndex += 1
                 }
             }
-            completion()
+            completion(cardos.count)
         }
     }
     
@@ -63,4 +64,14 @@ class CollectionViewModel {
         return self.MyCardoViewModel[index].data.cardos.count
     }
     
+    func refreshData(completion:@escaping (()->Void)) {
+        self.MyCardoViewModel.removeAll()
+        self.offset = 0
+        self.tmpIndex = 0
+        self.dic.removeAll()
+        self.vc?.collectionView.reloadData()
+        getCardos { _ in
+            completion()
+        }
+    }
 }

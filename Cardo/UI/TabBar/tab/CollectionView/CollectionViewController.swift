@@ -8,6 +8,7 @@
 
 import UIKit
 import ESTabBarController_swift
+import CRRefresh
 
 private let reuseIdentifier = "CardCell"
 
@@ -22,6 +23,7 @@ class CollectionViewController: UICollectionViewController {
     
     let popview = MyPopView(frame: CGRect(x: 0, y: 0, width: 248, height: 110))
     let refreshControl = UIRefreshControl()
+    var footerView:CRRefreshFooterView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +47,14 @@ class CollectionViewController: UICollectionViewController {
         refreshControl.beginRefreshing()
         refreshAction()
         
+        footerView = collectionView.cr.addFootRefresh {
+            self.ViewModel.getCardos { count in
+                self.collectionView.cr.endLoadingMore()
+                if count == 0 {
+                    self.collectionView.cr.noticeNoMoreData()
+                }
+            }
+        }
         
         // FIXME: UI 修改,移除转换
         self.CardoSegmentedControl.isHidden = true
@@ -135,7 +145,12 @@ class CollectionViewController: UICollectionViewController {
     
     @objc func refreshAction(){
         print("refreshAction")
-        self.ViewModel.getCardos {
+        if self.footerView.state == .refreshing {
+            self.refreshControl.endRefreshing()
+            return
+        }
+        
+        self.ViewModel.refreshData {
             self.refreshControl.endRefreshing()
         }
     }

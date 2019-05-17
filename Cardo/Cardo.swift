@@ -74,7 +74,7 @@ class Cardo {
     }
     
     weak var cell:CardCell?
-    let getImageRequest:DataRequest?
+    let getImageRequest:DataRequest!
     
     init(json:JSON) {
         self.id = json["photo_id"].intValue
@@ -90,6 +90,8 @@ class Cardo {
         self.time = json["upload_time"].stringValue.dateFromISO8601 ?? Date()
         
         self.getImageRequest = Alamofire.request(Server.baseUrl + "/" + self.imageFilePath, method: .get)
+        self.getImage { (result, data) in
+        }
     }
     
     init(id:Int,fileUserid:Int,time:Date,title:String,description:String,imageFilePath:String,latitude:Double,longitude:Double,isShared:Bool = false,isCollected:Bool = false,imageData:Data? = nil) {
@@ -119,7 +121,7 @@ class Cardo {
         }
         
         //net
-        if self.getImageRequest?.task?.state ?? .suspended != .running {
+//        if self.getImageRequest?.task?.state ?? .suspended != .running {
             getImageRequest?.responseData { (response) in
                 switch response.result {
                 case .success(let value):
@@ -130,17 +132,17 @@ class Cardo {
                     row.id = self.id
                     row.imageData = value
                     row.imageFilePath = self.imageFilePath
+                    
                     try! db.write {
                         db.add(row)
                     }
-                    //
                     
                     completion(true,value)
                 case .failure(_):
                     completion(false,nil)
                 }
             }
-        }
+//        }
     }
     
     

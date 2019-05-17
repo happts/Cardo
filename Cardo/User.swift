@@ -19,7 +19,7 @@ class User {
     
     var isLogin : Bool = false
     
-    static var instance = User()
+    static let instance = User()
     
     private init() {}
     
