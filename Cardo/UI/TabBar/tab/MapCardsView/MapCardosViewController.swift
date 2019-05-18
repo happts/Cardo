@@ -45,16 +45,20 @@ class MapCardosViewController: UIViewController,CLLocationManagerDelegate,MKMapV
         CardMapView.showsUserLocation = true
         CardMapView.userTrackingMode = .followWithHeading
         
+        CardMapView.setRegion(MKCoordinateRegion(center: locationManager.location?.coordinate ?? CLLocationCoordinate2D(latitude: 31.497438, longitude: 120.318628), latitudinalMeters: 5000, longitudinalMeters: 5000), animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        CardMapView.setRegion(MKCoordinateRegion(center: locationManager.location?.coordinate ?? CLLocationCoordinate2D(latitude: 31.497438, longitude: 120.318628), latitudinalMeters: 5000, longitudinalMeters: 5000), animated: true)
         
         if MineOrOthersSegmentedControl.selectedSegmentIndex == 0 {
             ViewModel.loadMyCardos()
         }else {
             ViewModel.loadNearbyCardos()
         }
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
         
     }
     

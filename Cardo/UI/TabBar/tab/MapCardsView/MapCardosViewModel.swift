@@ -46,12 +46,4 @@ class MapCardosViewModel {
         db.objects(CardoImage.self)
     }
     
-//    func testUse()  {
-//        let a = Cardo(id: 0, title: "test1", subtitle: "test sub test", image: UIImage(named: "bkg"), latitude: 31.497438, longitude: 120.318628, isShared: true, isCollected: true)
-//
-//        let b = Cardo(id: 1, title: "test2", subtitle: "it is a story", image: UIImage(named: "bkg"), latitude: 31.38, longitude: 120.28, isShared: true, isCollected: true)
-//
-//        nearybyCardos += [a,b]
-//    }
-    
 }

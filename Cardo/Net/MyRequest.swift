@@ -301,6 +301,7 @@ struct Request_GetCardos:MyRequest {
     
     init(mode:RequestMode,userid:Int,limit:Int,offset:Int,longitude:Double?=nil,latitude:Double?=nil,range:Double?=nil,date:Date?=nil) {
         self.parameters!["userid"] = String(userid)
+        
         self.parameters!["whose"] = mode.rawValue
         self.parameters!["num"] = String(limit)
         self.parameters!["offset"] = String(offset)
