@@ -46,11 +46,11 @@ class Cardo {
         didSet {
             if isShared != oldValue {
                 if isShared {
-                    UpdateCardo_Request(action: .favourite, photoId: self.id).execute { (result) in
+                    UpdateCardo_Request(action: .share, photoId: self.id).execute { (result) in
                         print("分享\(result)")
                     }
                 }else {
-                    UpdateCardo_Request(action: .unfavourite, photoId: self.id).execute { (result) in
+                    UpdateCardo_Request(action: .unshare, photoId: self.id).execute { (result) in
                         print("取消分享\(result)")
                     }
                 }

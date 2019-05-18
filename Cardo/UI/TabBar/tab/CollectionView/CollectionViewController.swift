@@ -43,19 +43,21 @@ class CollectionViewController: UICollectionViewController {
         refreshControl.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
         self.collectionView.refreshControl = refreshControl
         
-        self.ViewModel = CollectionViewModel(self)
-        refreshControl.beginRefreshing()
-        refreshAction()
-        
         footerView = collectionView.cr.addFootRefresh {
-            self.ViewModel.getCardos { count in
-                self.collectionView.cr.endLoadingMore()
-                if count == 0 {
-                    self.collectionView.cr.noticeNoMoreData()
+            if self.footerView.state == .refreshing {
+                self.ViewModel.getCardos { (count) in
+                    self.footerView.endRefreshing()
+                    if count == 0 {
+                        self.footerView.noticeNoMoreData()
+                    }
                 }
             }
         }
         
+        self.ViewModel = CollectionViewModel(self)
+        
+        refreshControl.beginRefreshing()
+        refreshAction()
         // FIXME: UI 修改,移除转换
         self.CardoSegmentedControl.isHidden = true
     }
@@ -152,6 +154,7 @@ class CollectionViewController: UICollectionViewController {
         
         self.ViewModel.refreshData {
             self.refreshControl.endRefreshing()
+            self.footerView.resetNoMoreData()
         }
     }
     

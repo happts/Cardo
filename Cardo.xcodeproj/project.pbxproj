@@ -195,7 +195,7 @@
 		A923A8052226BEFF00950D71 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				A964098E227DE5D900208C7F /* metaS */,
+				A964098E227DE5D900208C7F /* metaSection */,
 				A9393A642223E39600FE8329 /* meta */,
 				A9640992227DE5D900208C7F /* CollectionViewModel.swift */,
 				A9C27A0A22017B2700D2C773 /* CollectionViewController.swift */,
@@ -303,7 +303,7 @@
 			path = CardoUITests;
 			sourceTree = "<group>";
 		};
-		A964098E227DE5D900208C7F /* metaS */ = {
+		A964098E227DE5D900208C7F /* metaSection */ = {
 			isa = PBXGroup;
 			children = (
 				A964098F227DE5D900208C7F /* CardoCollectionFooterView.swift */,
@@ -311,7 +311,7 @@
 				A9640991227DE5D900208C7F /* CardoCollectionHeaderView.swift */,
 				A9640993227DE5D900208C7F /* SectionViewModel.swift */,
 			);
-			path = metaS;
+			path = metaSection;
 			sourceTree = "<group>";
 		};
 		A97DC08D2228198100B79196 /* Utils */ = {

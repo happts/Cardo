@@ -18,15 +18,6 @@ class UIAlertUtils {
         ViewController.present(alertController, animated: true, completion: nil)
     }
     
-    class func alertControllerDistructive(ViewController:UIViewController, message: String ,deleteHandler:((UIAlertAction) -> Void)? = nil){
-        let alertController = UIAlertController(title: "", message: message, preferredStyle: .alert)
-        let deleteAction = UIAlertAction(title: "删除", style: .destructive, handler: deleteHandler)
-        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-        alertController.addAction(deleteAction)
-        alertController.addAction(cancelAction)
-        ViewController.present(alertController, animated: true, completion: nil)
-    }
-    
     class func alertControllerDistructive(ViewController:UIViewController, message: String ,deleteHandler:((UIAlertAction) -> Void)? = nil, cancelHandler:((UIAlertAction) -> Void)? = nil){
         let alertController = UIAlertController(title: "", message: message, preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: "删除", style: .destructive, handler: deleteHandler)

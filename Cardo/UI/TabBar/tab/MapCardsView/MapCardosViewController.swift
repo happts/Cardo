@@ -45,16 +45,7 @@ class MapCardosViewController: UIViewController,CLLocationManagerDelegate,MKMapV
         CardMapView.showsUserLocation = true
         CardMapView.userTrackingMode = .followWithHeading
         
-//        testdata()
     }
-    
-//    func testdata() {
-//        let a = Cardo(id: 0, title: "test1", subtitle: "test sub test", image: UIImage(named: "bkg"), latitude: 31.497438, longitude: 120.318628, isShared: true, isCollected: true)
-//        self.mycardoList.append(a)
-//
-//        let b = Cardo(id: 1, title: "test2", subtitle: "it is a story", image: UIImage(named: "bkg"), latitude: 31.497438, longitude: 120.318628, isShared: true, isCollected: true)
-//        self.nearbyCardoList.append(b)
-//    }
     
     override func viewWillAppear(_ animated: Bool) {
         CardMapView.setRegion(MKCoordinateRegion(center: locationManager.location?.coordinate ?? CLLocationCoordinate2D(latitude: 31.497438, longitude: 120.318628), latitudinalMeters: 5000, longitudinalMeters: 5000), animated: true)

@@ -23,7 +23,6 @@ class MapCardosViewModel {
         self.vc = vc
         
         User.instance.mapViewModel = self
-//        testUse()
     }
     
     func loadMyCardos() {
@@ -35,7 +34,7 @@ class MapCardosViewModel {
     
     func loadNearbyCardos() {
         self.vc?.CardMapView.removeAnnotations(self.vc?.CardMapView.annotations ?? [])
-        
+        // FIXME: 获取附近 cardo
         for cardo in nearybyCardos {
             self.vc?.CardMapView.addAnnotation(cardo.pointAnnoation)
         }

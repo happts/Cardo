@@ -63,11 +63,13 @@ class AccountTableViewController: UITableViewController {
             case 2:
                 print("清空缓存")
                 DBHelper.instance.deleteAll()
+                UIAlertUtils.alertControllerWithMessage(ViewController: self, message: "清空缓存完成")
+                
             default:
                 print("nothing")
             }
         }
-        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     /*

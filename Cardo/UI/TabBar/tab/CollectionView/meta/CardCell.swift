@@ -95,6 +95,8 @@ class CardCell: UICollectionViewCell {
         
         if let imagedata = sectionViewModel.data.cardos[index.item].imageData {
             self.image = UIImage(data: imagedata)
+        }else{
+            self.image = UIImage(data: Data())
         }
         //
         changeState()

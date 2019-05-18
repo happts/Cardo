@@ -120,6 +120,7 @@ struct Register_Request : MyRequest {
             switch responseJson.result {
             case .success(let value):
                 let json = JSON(value)
+                print(json)
                 response(json["msg"].string == "ok")
             case .failure( _ ):
                 response(false)
@@ -324,6 +325,7 @@ struct Request_GetCardos:MyRequest {
                 var cardos:[Cardo] = []
                 for one in json {
                     cardos.append(Cardo(json: one))
+                    print(one)
                 }
                 cardos.sort(by: { (c1, c2) -> Bool in
                     return c1.time.compare(c2.time) == .orderedDescending
@@ -373,7 +375,7 @@ struct UpdateCardo_Request : MyRequest {
     }
     
     func execute(response:@escaping ((Bool) -> Void)) {
-        Alamofire.request(path, method: method, parameters: parameters).responseJSON { (responseJson) in
+        Alamofire.request(path, method: method, parameters: parameters,encoding:URLEncoding.httpBody).responseJSON { (responseJson) in
             switch responseJson.result {
             case .success(let value):
                 let json = JSON(value)
