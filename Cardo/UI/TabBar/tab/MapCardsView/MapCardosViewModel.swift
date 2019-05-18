@@ -40,10 +40,16 @@ class MapCardosViewModel {
         }
     }
 
-    func getMyCardosFromDB() {
-        let db = try! Realm()
-        
-        db.objects(CardoImage.self)
+    var nearbyoffset = 0
+    func loadNearbyCardos(longitude:Double,latitude:Double) {
+        Request_GetCardos(mode: .nearby_share, userid: User.instance.userid, limit: 20, offset: nearbyoffset, longitude: longitude, latitude: latitude, range: 0.005, date: nil).execute { (cardos) in
+            self.vc?.CardMapView.removeAnnotations(self.vc?.CardMapView.annotations ?? [])
+            for one in cardos {
+                one.getImage(completion: { (result, _) in
+                    self.vc?.CardMapView.addAnnotation(one.pointAnnoation)
+                })
+            }
+        }
     }
     
 }

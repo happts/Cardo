@@ -23,7 +23,8 @@ class MapCardosViewController: UIViewController,CLLocationManagerDelegate,MKMapV
             print("now is 0, My Cardo")
         }else {
             print("now is 1, Others Cardo")
-            ViewModel.loadNearbyCardos()
+            let co = self.CardMapView.region.center
+            ViewModel.loadNearbyCardos(longitude: co.longitude, latitude: co.latitude)
         }
     }
     @IBOutlet weak var CardMapView: MKMapView!
@@ -60,6 +61,14 @@ class MapCardosViewController: UIViewController,CLLocationManagerDelegate,MKMapV
     
     override func viewWillDisappear(_ animated: Bool) {
         
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        print("regionChanged")
+        let center = mapView.region.center
+        if MineOrOthersSegmentedControl.selectedSegmentIndex == 1 {
+            ViewModel.loadNearbyCardos(longitude: center.longitude, latitude: center.latitude)
+        }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

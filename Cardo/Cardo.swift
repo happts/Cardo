@@ -74,6 +74,7 @@ class Cardo {
     }
     
     weak var cell:CardCell?
+    
     let getImageRequest:DataRequest!
     
     init(json:JSON) {

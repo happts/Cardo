@@ -273,7 +273,7 @@
             </objects>
             <point key="canvasLocation" x="-648" y="-304"/>
         </scene>
-        <!--Item-->
+        <!--Cardo-->
         <scene sceneID="zme-e3-7z3">
             <objects>
                 <collectionViewController id="puw-cd-Vxz" customClass="CollectionViewController" customModule="Cardo" customModuleProvider="target" sceneMemberID="viewController">
@@ -463,21 +463,7 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Item" id="S1U-Ww-Pyn"/>
-                    <navigationItem key="navigationItem" id="oD3-Wi-X21">
-                        <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="AMM-vk-Us8">
-                            <rect key="frame" x="154.66666666666666" y="7" width="104.99999999999997" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <segments>
-                                <segment title="全部"/>
-                                <segment title="收藏   "/>
-                            </segments>
-                            <color key="tintColor" red="0.8901960784313725" green="0.74901960784313726" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="SegmentChangeAction:" destination="puw-cd-Vxz" eventType="valueChanged" id="AiT-zK-Viq"/>
-                            </connections>
-                        </segmentedControl>
+                    <navigationItem key="navigationItem" title="Cardo" id="oD3-Wi-X21">
                         <barButtonItem key="rightBarButtonItem" image="account" id="p4O-fp-Ltv">
                             <color key="tintColor" red="0.89019607840000003" green="0.74901960779999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -485,9 +471,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="CardoSegmentedControl" destination="AMM-vk-Us8" id="gVz-jz-CZG"/>
-                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ysb-IZ-5w9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="6tI-9c-17m"/>
