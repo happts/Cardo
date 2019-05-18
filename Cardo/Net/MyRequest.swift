@@ -323,6 +323,7 @@ struct Request_GetCardos:MyRequest {
             switch response.result {
             case .success(let value):
                 let json = JSON(value).arrayValue
+                print(json)
                 var cardos:[Cardo] = []
                 for one in json {
                     cardos.append(Cardo(json: one))
@@ -385,6 +386,36 @@ struct UpdateCardo_Request : MyRequest {
             case .failure(let error):
                 response(false)
                 print(error)
+            }
+        }
+    }
+}
+
+struct Request_modifyCardoDescription:MyRequest {
+    var path: String
+    
+    var method: HTTPMethod
+    
+    var parameters: [String : String]? = [:]
+    
+    init(photo_id:Int,newdescription:String) {
+        self.path = Server.modifydescriptionUrl
+        self.method = .post
+        self.parameters!["photo_id"] = "\(photo_id)"
+        self.parameters!["new_desc"] = newdescription
+    }
+    
+    // FIXME: 修复
+    func execute(response:@escaping ((Bool) -> Void)) {
+        request().responseJSON { (responseJson) in
+            switch responseJson.result {
+            case .success(let value):
+                let json = JSON(value)
+                print(json)
+                response(true)
+            case .failure(let error):
+                print(error)
+                response(false)
             }
         }
     }

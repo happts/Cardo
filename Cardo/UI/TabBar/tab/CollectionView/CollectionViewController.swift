@@ -14,10 +14,10 @@ private let reuseIdentifier = "CardCell"
 
 class CollectionViewController: UICollectionViewController {
     
-    @IBOutlet weak var CardoSegmentedControl: UISegmentedControl!
-    @IBAction func SegmentChangeAction(_ sender: UISegmentedControl) {
-        collectionView.reloadData()
-    }
+//    @IBOutlet weak var CardoSegmentedControl: UISegmentedControl!
+//    @IBAction func SegmentChangeAction(_ sender: UISegmentedControl) {
+//        collectionView.reloadData()
+//    }
     
     var ViewModel:CollectionViewModel!
     
@@ -59,7 +59,6 @@ class CollectionViewController: UICollectionViewController {
         refreshControl.beginRefreshing()
         refreshAction()
         // FIXME: UI 修改,移除转换
-        self.CardoSegmentedControl.isHidden = true
     }
     
     // MARK: UICollectionViewDataSource

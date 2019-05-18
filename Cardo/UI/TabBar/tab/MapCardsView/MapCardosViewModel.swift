@@ -42,7 +42,7 @@ class MapCardosViewModel {
 
     var nearbyoffset = 0
     func loadNearbyCardos(longitude:Double,latitude:Double) {
-        Request_GetCardos(mode: .nearby_share, userid: User.instance.userid, limit: 20, offset: nearbyoffset, longitude: longitude, latitude: latitude, range: 0.005, date: nil).execute { (cardos) in
+        Request_GetCardos(mode: .nearby_share, userid: User.instance.userid, limit: 20, offset: nearbyoffset, longitude: longitude, latitude: latitude, range: 0.01, date: nil).execute { (cardos) in
             self.vc?.CardMapView.removeAnnotations(self.vc?.CardMapView.annotations ?? [])
             for one in cardos {
                 one.getImage(completion: { (result, _) in

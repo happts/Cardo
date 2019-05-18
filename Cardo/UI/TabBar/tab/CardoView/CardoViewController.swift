@@ -130,7 +130,7 @@ class CardoViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         UIAlertUtils.alertControllerWithMessageAndChoice(ViewController: self, message: "确认提交修改?") { (_) in
             self.cardo.isCollected = self.CollectButton.isSelected
             self.cardo.isShared = self.ShareButton.isSelected
-            
+            self.cardo.description = self.ResultTextView.text
             self.navigationController?.popViewController(animated: true)
 
         }

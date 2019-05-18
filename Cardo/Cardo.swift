@@ -25,7 +25,15 @@ class Cardo {
     }
     
     var title:String
-    var description:String
+    var description:String {
+        didSet {
+            if oldValue != description {
+                Request_modifyCardoDescription(photo_id: self.id, newdescription: description).execute { (result) in
+                    print(result)
+                }
+            }
+        }
+    }
     
     var imageFilePath:String
     var imageData:Data? {

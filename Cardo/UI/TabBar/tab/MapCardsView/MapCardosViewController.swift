@@ -62,12 +62,22 @@ class MapCardosViewController: UIViewController,CLLocationManagerDelegate,MKMapV
     override func viewWillDisappear(_ animated: Bool) {
         
     }
+    var tmpSpan:MKCoordinateSpan!
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        tmpSpan = mapView.region.span
+    }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         print("regionChanged")
-        let center = mapView.region.center
+        
         if MineOrOthersSegmentedControl.selectedSegmentIndex == 1 {
-            ViewModel.loadNearbyCardos(longitude: center.longitude, latitude: center.latitude)
+            let center = mapView.region.center
+            let span = mapView.region.span
+            if span.latitudeDelta < tmpSpan.latitudeDelta || span.longitudeDelta < tmpSpan.longitudeDelta {
+                return
+            }else {
+                ViewModel.loadNearbyCardos(longitude: center.longitude, latitude: center.latitude)
+            }
         }
     }
     

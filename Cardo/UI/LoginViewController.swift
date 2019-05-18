@@ -19,6 +19,7 @@ class LoginViewController: UIViewController,UITabBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        IndicatorView.stopAnimating()
     }
     
     @IBAction func RegisterAction(_ sender: UIButton) {
