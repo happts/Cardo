@@ -53,16 +53,4 @@ class CardoPointView: UIView {
         return image
     }
     
-//    func convertView(toImage v: UIView?) -> UIImage? {
-//        let s: CGSize? = v?.bounds.size
-//        // 下面方法，第一个参数表示区域大小。第二个参数表示是否是非透明的。如果需要显示半透明效果，需要传NO，否则传YES。第三个参数就是屏幕密度了
-//        UIGraphicsBeginImageContextWithOptions(s ?? CGSize.zero, _: false, _: UIScreen.main.scale)
-//        if let context = UIGraphicsGetCurrentContext() {
-//            v?.layer.render(in: context)
-//        }
-//        let image: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//        return image
-//    }
-
 }

@@ -127,10 +127,7 @@ class Cardo {
             completion(true,row.imageData)
             print("from database")
             return
-        }
-        
-        //net
-//        if self.getImageRequest?.task?.state ?? .suspended != .running {
+        }else {
             getImageRequest?.responseData { (response) in
                 switch response.result {
                 case .success(let value):
@@ -142,8 +139,12 @@ class Cardo {
                     row.imageData = value
                     row.imageFilePath = self.imageFilePath
                     
-                    try! db.write {
-                        db.add(row)
+                    do {
+                        try db.write {
+                            db.add(row)
+                        }
+                    }catch let erro {
+                        print(erro)
                     }
                     
                     completion(true,value)
@@ -151,7 +152,8 @@ class Cardo {
                     completion(false,nil)
                 }
             }
-//        }
+        }
+        
     }
     
     

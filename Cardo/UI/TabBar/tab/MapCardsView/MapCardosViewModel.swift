@@ -46,6 +46,7 @@ class MapCardosViewModel {
             self.vc?.CardMapView.removeAnnotations(self.vc?.CardMapView.annotations ?? [])
             for one in cardos {
                 one.getImage(completion: { (result, _) in
+                    self.nearybyCardos.append(one)
                     self.vc?.CardMapView.addAnnotation(one.pointAnnoation)
                 })
             }

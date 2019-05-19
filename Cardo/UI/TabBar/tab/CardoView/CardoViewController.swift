@@ -26,7 +26,9 @@ class CardoViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     @IBOutlet weak var ActivittyIndicator: UIActivityIndicatorView!
     
     var cardo:Cardo!
+    var cardoItem:Int?
     var photoResult = false
+    var fromMap = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +62,12 @@ class CardoViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         }else {
             StackView.removeFromSuperview()
         }
+        
+        if fromMap {
+            DeleteButton.isEnabled = false
+            self.ResultTextView.isEditable = false
+        }
+        
         self.ResultTextView.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardFrameChanged(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
@@ -88,6 +96,11 @@ class CardoViewController: UIViewController,UIImagePickerControllerDelegate,UINa
         UIAlertUtils.alertControllerDistructive(ViewController: self, message: "确认删除此 Cardo?") { (_) in
             //delete
             self.cardo.delete()
+            if let item = self.cardoItem ,let secvm = self.cardo.cell?.sectionViewModel {
+                secvm.data.removeCardo([item])
+                secvm.collectionViewModel?.vc?.collectionView.reloadSections([secvm.sectionIndex])
+            }
+            self.navigationController?.dismiss(animated: true, completion: nil)
         }
     }
     

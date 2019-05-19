@@ -8,9 +8,6 @@
 
 import Foundation
 
-//remeber to delete
-import UIKit
-
 class User {
     var username : String = "cardoteam"
     var nickname : String = ""
@@ -23,6 +20,8 @@ class User {
     
     private init() {}
     
+    //cardoteam
+    //super
     func setUserData(username : String, nickname : String = "", password : String, userid : Int = 0) -> User {
         self.username = username
         self.nickname = nickname

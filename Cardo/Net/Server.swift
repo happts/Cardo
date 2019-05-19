@@ -35,6 +35,6 @@ struct Server {
     
     static let unshareUrl = baseUrl + "/api/unshare"
     
-    static let modifydescriptionUrl = baseUrl + "api/modifydescription"
+    static let modifydescriptionUrl = baseUrl + "/api/modifydescription"
 }
 

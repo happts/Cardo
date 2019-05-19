@@ -140,6 +140,7 @@ class CollectionViewController: UICollectionViewController {
         if sender.state == .began {
             let cardovc = CardoViewController()
             cardovc.cardo = ViewModel.MyCardoViewModel[itemIndexPath.section].data.cardos[itemIndexPath.item]
+            cardovc.cardoItem = itemIndexPath.item
             self.navigationController?.pushViewController(cardovc, animated: true)
         }
     }

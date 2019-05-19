@@ -246,7 +246,13 @@ struct Upload_Request : MyRequest {
                     upload.responseJSON(completionHandler: { (response) in
                         let json = JSON(response.value as Any)
                         print(json)
-                        responseMsg(json["title"].stringValue, json["destination"].description)
+                        let desc = json["description"]
+                        
+                        responseMsg(json["title"].stringValue, desc["ldmk"].stringValue +
+                            desc["plant"].stringValue +
+                            desc["animal"].stringValue +
+                            desc["dish"].stringValue +
+                            (desc["or"].arrayValue.first ?? JSON())["keyword"].stringValue )
                         //
                     })
                 case .failure(let error):
@@ -407,7 +413,7 @@ struct Request_modifyCardoDescription:MyRequest {
     
     // FIXME: 修复
     func execute(response:@escaping ((Bool) -> Void)) {
-        request().responseJSON { (responseJson) in
+        Alamofire.request(path, method: method, parameters: parameters).responseJSON { (responseJson) in
             switch responseJson.result {
             case .success(let value):
                 let json = JSON(value)
