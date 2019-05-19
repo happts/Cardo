@@ -69,10 +69,8 @@ class CardoCollectionHeaderView: UICollectionReusableView,CardoCollectionHeaderA
                 self.viewModel?.data.cardos[index.item].isCollected = true
             }
         case .Delete:
-//            UIAlertUtils.alertControllerDistructive(ViewController: (self.viewModel?.collectionViewModel?.vc)!, message: "确认删除选中Cardo?", deleteHandler: { (_) in
-                self.viewModel?.data.removeCardo(self.viewModel?.indexPathForSelectedItems.map{$0.item} ?? [])
-                self.viewModel?.collectionViewModel?.vc?.collectionView.reloadSections([self.viewModel!.sectionIndex])
-//            })
+            self.viewModel?.data.removeCardo(self.viewModel?.indexPathForSelectedItems.map{$0.item} ?? [])
+            self.viewModel?.collectionViewModel?.vc?.collectionView.reloadSections([self.viewModel!.sectionIndex])
         case .StartEdit:
             self.viewModel?.deSelectItems()
             self.viewModel?.changeState()

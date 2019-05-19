@@ -19,6 +19,7 @@ import RealmSwift
 class Cardo {
     let id:Int
     let fileUserId:Int
+    let userId:Int
     let time:Date
     var date:Date {
         return time
@@ -53,14 +54,18 @@ class Cardo {
     var isShared:Bool {
         didSet {
             if isShared != oldValue {
-                if isShared {
-                    UpdateCardo_Request(action: .share, photoId: self.id).execute { (result) in
-                        print("分享\(result)")
+                if self.fileUserId == User.instance.userid {
+                    if isShared {
+                        UpdateCardo_Request(action: .share, photoId: self.id).execute { (result) in
+                            print("分享\(result)")
+                        }
+                    }else {
+                        UpdateCardo_Request(action: .unshare, photoId: self.id).execute { (result) in
+                            print("取消分享\(result)")
+                        }
                     }
                 }else {
-                    UpdateCardo_Request(action: .unshare, photoId: self.id).execute { (result) in
-                        print("取消分享\(result)")
-                    }
+                    isShared = oldValue
                 }
             }
         }
@@ -88,6 +93,7 @@ class Cardo {
     init(json:JSON) {
         self.id = json["photo_id"].intValue
         self.fileUserId = json["file_user_id"].intValue
+        self.userId = json["user_id"].intValue
         //        self.fileUserNickname = json["nickname"].stringValue
         self.imageFilePath = json["file_name"].stringValue
         self.latitude = json["latitude"].doubleValue
@@ -103,9 +109,11 @@ class Cardo {
         }
     }
     
+    // FIXME: userid
     init(id:Int,fileUserid:Int,time:Date,title:String,description:String,imageFilePath:String,latitude:Double,longitude:Double,isShared:Bool = false,isCollected:Bool = false,imageData:Data? = nil) {
         self.id = id
         self.fileUserId = fileUserid
+        self.userId = 0
         self.time = time
         self.title = title
         self.description = description

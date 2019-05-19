@@ -131,9 +131,9 @@ struct Register_Request : MyRequest {
 }
 
 struct Logout_Request : MyRequest {
-    var path: String = Server.logoutUrl
-    var method: HTTPMethod = .post
-    var parameters: [String : String]?
+    let path: String = Server.logoutUrl
+    let method: HTTPMethod = .post
+    let parameters: [String : String]? = nil
     
     func execute(response:@escaping ((Bool) -> Void)) {
         Alamofire.request(path, method: method, parameters: parameters).responseJSON { (responseJson) in

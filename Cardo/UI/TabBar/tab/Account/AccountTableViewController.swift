@@ -50,6 +50,9 @@ class AccountTableViewController: UITableViewController {
         
         //logout
         if indexPath.section == 2 {
+            Logout_Request().execute { (_) in
+                return
+            }
             self.navigationController?.tabBarController?.dismiss(animated: true, completion: nil)
         }
         

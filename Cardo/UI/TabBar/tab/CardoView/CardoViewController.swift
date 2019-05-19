@@ -45,6 +45,7 @@ class CardoViewController: UIViewController,UIImagePickerControllerDelegate,UINa
             CollectButton.setImage(UIImage(named: "未收藏样式"), for: .normal)
             CollectButton.setTitle("收藏  ", for: .normal)
             
+            
             SubmitBarButtonItem = UIBarButtonItem(title: "提交", style: UIBarButtonItem.Style.done, target: self, action: #selector(SubmitAction))
             self.navigationItem.rightBarButtonItem = SubmitBarButtonItem
             
@@ -59,6 +60,13 @@ class CardoViewController: UIViewController,UIImagePickerControllerDelegate,UINa
             self.NameLabel.text = cardo.title
             self.ResultTextView.text = cardo.description
             self.ImageView.image = UIImage(data: cardo.imageData ?? Data())
+            //
+            
+            if self.cardo.fileUserId != self.cardo.userId {
+                self.ShareButton.isUserInteractionEnabled = false
+                self.DeleteButton.isUserInteractionEnabled = false
+                self.ResultTextView.isEditable = false
+            }
         }else {
             StackView.removeFromSuperview()
         }
@@ -93,15 +101,14 @@ class CardoViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     }
     
     @IBAction func DeleteAction(_ sender: UIButton) {
-        UIAlertUtils.alertControllerDistructive(ViewController: self, message: "确认删除此 Cardo?") { (_) in
-            //delete
+        UIAlertUtils.alertControllerDistructive(ViewController: self, message: "确认删除此 Cardo?", deleteHandler: { (_) in
             self.cardo.delete()
             if let item = self.cardoItem ,let secvm = self.cardo.cell?.sectionViewModel {
                 secvm.data.removeCardo([item])
                 secvm.collectionViewModel?.vc?.collectionView.reloadSections([secvm.sectionIndex])
             }
             self.navigationController?.dismiss(animated: true, completion: nil)
-        }
+        }, cancelHandler: nil)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
