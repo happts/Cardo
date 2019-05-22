@@ -23,6 +23,7 @@ class MapCardosViewController: UIViewController,CLLocationManagerDelegate,MKMapV
             print("now is 0, My Cardo")
         }else {
             print("now is 1, Others Cardo")
+            ViewModel.loadNearbyCardos()
             let co = self.CardMapView.region.center
             ViewModel.loadNearbyCardos(longitude: co.longitude, latitude: co.latitude)
         }
@@ -55,6 +56,8 @@ class MapCardosViewController: UIViewController,CLLocationManagerDelegate,MKMapV
             ViewModel.loadMyCardos()
         }else {
             ViewModel.loadNearbyCardos()
+//            let center = locationManager.location?.coordinate ?? CLLocationCoordinate2D(latitude: 31.497438, longitude: 120.318628)
+//            ViewModel.loadNearbyCardos(longitude: center.longitude, latitude: center.latitude)
         }
         
     }
@@ -69,16 +72,16 @@ class MapCardosViewController: UIViewController,CLLocationManagerDelegate,MKMapV
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         print("regionChanged")
-        
-        if MineOrOthersSegmentedControl.selectedSegmentIndex == 1 {
-            let center = mapView.region.center
-            let span = mapView.region.span
-            if span.latitudeDelta < tmpSpan.latitudeDelta || span.longitudeDelta < tmpSpan.longitudeDelta {
-                return
-            }else {
-                ViewModel.loadNearbyCardos(longitude: center.longitude, latitude: center.latitude)
-            }
-        }
+//
+//        if MineOrOthersSegmentedControl.selectedSegmentIndex == 1 {
+//            let center = mapView.region.center
+//            let span = mapView.region.span
+//            if span.latitudeDelta < tmpSpan.latitudeDelta || span.longitudeDelta < tmpSpan.longitudeDelta {
+//                return
+//            }else {
+//                ViewModel.loadNearbyCardos(longitude: center.longitude, latitude: center.latitude)
+//            }
+//        }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

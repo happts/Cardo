@@ -54,7 +54,7 @@ class Cardo {
     var isShared:Bool {
         didSet {
             if isShared != oldValue {
-                if self.fileUserId == User.instance.userid {
+                if self.fileUserId == self.userId {
                     if isShared {
                         UpdateCardo_Request(action: .share, photoId: self.id).execute { (result) in
                             print("分享\(result)")
@@ -142,14 +142,16 @@ class Cardo {
                     self.imageData = value
                     print("from server")
                     //
-                    let row = CardoImage()
-                    row.id = self.id
-                    row.imageData = value
-                    row.imageFilePath = self.imageFilePath
-                    
                     do {
-                        try db.write {
-                            db.add(row)
+                        let row = CardoImage()
+                        row.id = self.id
+                        row.imageData = value
+                        row.imageFilePath = self.imageFilePath
+                        
+                        if db.object(ofType: CardoImage.self, forPrimaryKey: row.id) == nil {
+                            try db.write {
+                                db.add(row)
+                            }
                         }
                     }catch let erro {
                         print(erro)

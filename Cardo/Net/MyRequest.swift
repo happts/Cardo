@@ -202,7 +202,7 @@ struct Upload_Request : MyRequest {
         self.to = to
     }
     
-    func execute(responseMsg:@escaping ((String, String) -> Void)) {
+    func execute(responseMsg:@escaping ((String, String,Int?) -> Void)) {
         if action == .ocr {
             Alamofire.upload(multipartFormData: { (formdata) in
                 formdata.append(self.image, withName: "picture", fileName: "123.png", mimeType: "image/png")
@@ -218,22 +218,23 @@ struct Upload_Request : MyRequest {
                     upload.responseJSON(completionHandler: { (response) in
                         let json = JSON(response.value as Any)
                         print(json)
-                        responseMsg(json["words"].arrayValue[0].string ?? "sd",
+                        responseMsg(json["words"].arrayValue.first?.string ?? "sd",
                                     {
                                         var string = ""
                                         for s in json["words"].arrayValue {
                                             string += s.string ?? ""
                                         }
                                         return string
-                        }()
+                        }(),json["file_id"].intValue
                         )
                     })
                 case .failure(let error):
-                    responseMsg(String(describing: error), "")
+                    responseMsg(String(describing: error), "",nil)
                     //print(error)
                 }
             }
-        } else if action == .or {
+        }
+        else if action == .or {
             Alamofire.upload(multipartFormData: { (formdata) in
                 formdata.append(self.image, withName: "picture", fileName: "123.png", mimeType: "image/png")
                 formdata.append("or".data(using: String.Encoding.utf8)!, withName: "action")
@@ -252,11 +253,11 @@ struct Upload_Request : MyRequest {
                             desc["plant"].stringValue +
                             desc["animal"].stringValue +
                             desc["dish"].stringValue +
-                            (desc["or"].arrayValue.first ?? JSON())["keyword"].stringValue )
+                            (desc["or"].arrayValue.first ?? JSON())["keyword"].stringValue, json["file_id"].intValue )
                         //
                     })
                 case .failure(let error):
-                    responseMsg(String(describing: error), "")
+                    responseMsg(String(describing: error), "",nil)
                 
                 }
             }

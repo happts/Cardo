@@ -46,15 +46,15 @@ class User {
 }
 
 extension User {
-    func cardoOR(imageData:Data,longitude:Double,latitude:Double,completation:@escaping ((String,String)->Void)) {
-        Upload_Request(image: imageData, longitude: longitude, latitude: latitude, time: Date()).execute { (msg, words) in
-            completation(msg,words)
+    func cardoOR(imageData:Data,longitude:Double,latitude:Double,completation:@escaping ((String,String,Int?)->Void)) {
+        Upload_Request(image: imageData, longitude: longitude, latitude: latitude, time: Date()).execute { (msg, words,photo_id)  in
+            completation(msg,words,photo_id)
         }
     }
     
-    func cardoOCR(imageData:Data,longitude:Double,latitude:Double,completation:@escaping ((String,String)->Void)){
-        Upload_Request(image: imageData, longitude: longitude, latitude: latitude, time: Date(), from: "zh", to: "jp").execute { (title, description) in
-            completation(title,description)
+    func cardoOCR(imageData:Data,longitude:Double,latitude:Double,completation:@escaping ((String,String,Int?)->Void)){
+        Upload_Request(image: imageData, longitude: longitude, latitude: latitude, time: Date(), from: "zh", to: "jp").execute { (title, description,photo_id)  in
+            completation(title,description,photo_id)
         }
     }
 }

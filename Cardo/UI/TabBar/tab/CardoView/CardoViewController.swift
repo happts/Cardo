@@ -29,6 +29,8 @@ class CardoViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     var cardoItem:Int?
     var photoResult = false
     var fromMap = false
+    // FIXME : 设计方式不好
+    var photo_id:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -141,7 +143,14 @@ class CardoViewController: UIViewController,UIImagePickerControllerDelegate,UINa
     
     @IBAction func SaveAction(_ sender: Any) {
         if photoResult {
-            self.navigationController?.dismiss(animated: true, completion: nil)
+            self.ActivittyIndicator.startAnimating()
+            if let id = self.photo_id {
+                Request_modifyCardoDescription(photo_id: id, newdescription: self.ResultTextView.text).execute { (result) in
+                    self.navigationController?.dismiss(animated: true, completion: nil)
+                }
+            }else {
+                self.navigationController?.dismiss(animated: true, completion: nil)
+            }
         }
     }
     
@@ -152,7 +161,6 @@ class CardoViewController: UIViewController,UIImagePickerControllerDelegate,UINa
             self.cardo.isShared = self.ShareButton.isSelected
             self.cardo.description = self.ResultTextView.text
             self.navigationController?.popViewController(animated: true)
-
         }
     }
     

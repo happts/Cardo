@@ -10,6 +10,7 @@ import UIKit
 import ESTabBarController_swift
 
 import CoreLocation
+import RealmSwift
 
 class MyTabBarController: ESTabBarController,UINavigationControllerDelegate,UIImagePickerControllerDelegate,CLLocationManagerDelegate {
     
@@ -110,20 +111,78 @@ class MyTabBarController: ESTabBarController,UINavigationControllerDelegate,UIIm
         vc.ImageView.image = image
         picker.pushViewController(vc, animated: true)
         
-        if isOCR {
-            User.instance.cardoOCR(imageData: image.pngData()!, longitude: lt?.longitude ?? 0, latitude: lt?.latitude ?? 0) { (title, desc) in
-                vc.ActivittyIndicator.stopAnimating()
-                vc.NameLabel.text = title
-                vc.ResultTextView.text = desc
-            }
-        }else {
-            User.instance.cardoOR(imageData: image.pngData()!, longitude: lt?.longitude ?? 0, latitude: lt?.latitude ?? 0) { (msg, words) in
-                vc.ActivittyIndicator.stopAnimating()
-                vc.NameLabel.text = msg
-                vc.ResultTextView.text = words
+        
+        let result:(String,String,Int?)->Void = { (title,desc,photo_id) in
+            vc.ActivittyIndicator.stopAnimating()
+            vc.NameLabel.text = title
+            vc.ResultTextView.text = desc
+            
+            if let p_id = photo_id {
+                vc.photo_id = p_id
+                let row = CardoImage()
+                row.id = p_id
+                row.imageData = image.pngData()
+                row.imageFilePath = ""
                 
+                let db = try! Realm()
+                if db.object(ofType: CardoImage.self, forPrimaryKey: row.id) == nil {
+                    try! db.write {
+                        db.add(row)
+                    }
+                }
             }
         }
+        
+        
+        if isOCR {
+            User.instance.cardoOR(imageData: image.pngData()!, longitude: lt?.longitude ?? 0, latitude: lt?.latitude ?? 0, completation: result)
+//            User.instance.cardoOCR(imageData: image.pngData()!, longitude: lt?.longitude ?? 0, latitude: lt?.latitude ?? 0) { (title, desc,photo_id)  in
+//                vc.ActivittyIndicator.stopAnimating()
+//                vc.NameLabel.text = title
+//                vc.ResultTextView.text = desc
+//
+//                if let p_id = photo_id {
+//
+//                    let row = CardoImage()
+//                    row.id = p_id
+//                    row.imageData = image.pngData()
+//                    row.imageFilePath = ""
+//
+//                    let db = try! Realm()
+//                    if db.object(ofType: CardoImage.self, forPrimaryKey: row.id) == nil {
+//                        try! db.write {
+//                            db.add(row)
+//                        }
+//                    }
+//                }
+//            }
+        }else {
+            User.instance.cardoOR(imageData: image.pngData()!, longitude: lt?.longitude ?? 0, latitude: lt?.latitude ?? 0, completation: result)
+//            User.instance.cardoOR(imageData: image.pngData()!, longitude: lt?.longitude ?? 0, latitude: lt?.latitude ?? 0) { (msg, words,photo_id)  in
+//                vc.ActivittyIndicator.stopAnimating()
+//                vc.NameLabel.text = msg
+//                vc.ResultTextView.text = words
+//
+//                if let p_id = photo_id {
+//
+//                    let row = CardoImage()
+//                    row.id = p_id
+//                    row.imageData = image.pngData()
+//                    row.imageFilePath = ""
+//
+//                    let db = try! Realm()
+//                    if db.object(ofType: CardoImage.self, forPrimaryKey: row.id) == nil {
+//                        try! db.write {
+//                            db.add(row)
+//                        }
+//                    }
+//                }
+//            }
+        }
+        
+        
+        
+        
         
     }
 

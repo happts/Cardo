@@ -58,7 +58,6 @@ class CollectionViewController: UICollectionViewController {
         
         refreshControl.beginRefreshing()
         refreshAction()
-        // FIXME: UI 修改,移除转换
     }
     
     // MARK: UICollectionViewDataSource
