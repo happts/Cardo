@@ -46,6 +46,11 @@
                                 <action selector="switchStateAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="JVS-nt-xRz"/>
                             </connections>
                         </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" title="toAccount" image="account" id="UnY-l9-9tU">
+                            <connections>
+                                <segue destination="yiV-6S-tzm" kind="show" id="LH9-uc-yKH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="CardMapView" destination="rVA-Qd-uEu" id="7cW-Xs-KEj"/>
@@ -137,7 +142,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wdE-9U-O6N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1010" y="-304"/>
+            <point key="canvasLocation" x="1009" y="-304"/>
         </scene>
         <!--我的-->
         <scene sceneID="45G-du-xEx">
@@ -271,7 +276,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vYd-zY-4QC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-648" y="-304"/>
+            <point key="canvasLocation" x="1046" y="448"/>
         </scene>
         <!--Cardo-->
         <scene sceneID="zme-e3-7z3">
@@ -577,4 +582,7 @@
         <image name="分享" width="15" height="15"/>
         <image name="收藏" width="15" height="15"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="LH9-uc-yKH"/>
+    </inferredMetricsTieBreakers>
 </document>

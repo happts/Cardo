@@ -59,6 +59,14 @@ extension Cardo {
         return row
     }
     
+    var cardoImageModel:CardoImage {
+        let row = CardoImage()
+        row.id = self.id
+        row.imageData = self.imageData
+        row.imageFilePath = self.imageFilePath
+        return row
+    }
+    
     convenience init(row:CardoR) {
         self.init(id: row.id, fileUserid: row.fileUserID, time: row.time, title: row.title, description: row.CardoDescription, imageFilePath: row.imageFilePath, latitude: row.latitude, longitude: row.longitude,isShared:row.isShared,isCollected:row.isCollected,imageData:row.imageData)
     }

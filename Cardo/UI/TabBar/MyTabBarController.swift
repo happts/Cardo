@@ -44,7 +44,6 @@ class MyTabBarController: ESTabBarController,UINavigationControllerDelegate,UIIm
         }
         // Do any additional setup after loading the view.
         
-        
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
@@ -53,7 +52,9 @@ class MyTabBarController: ESTabBarController,UINavigationControllerDelegate,UIIm
             case .authorizedAlways, .authorizedWhenInUse :
                 toCameraController()
             default:
-                PrivacyRequest.requestLocationPrivacy(locationManager: locationManager, completation: nil)
+                PrivacyRequest.requestLocationPrivacy(locationManager: locationManager){ _ in
+                    return
+                }
             }
         }else {
             super.tabBar(tabBar, didSelect: item)
@@ -69,9 +70,6 @@ class MyTabBarController: ESTabBarController,UINavigationControllerDelegate,UIIm
                 cameraPicker.delegate = self
                 cameraPicker.allowsEditing = true
                 cameraPicker.sourceType = .camera
-                //                    cameraPicker.showsCameraControls = false
-                //                    cameraPicker.cameraOverlayView = self.setCameraView()
-                //在需要的地方present出来
                 self.present(cameraPicker, animated: true, completion: nil)
             } else {
                 print("不支持拍照")
@@ -86,9 +84,6 @@ class MyTabBarController: ESTabBarController,UINavigationControllerDelegate,UIIm
                 cameraPicker.delegate = self
                 cameraPicker.allowsEditing = true
                 cameraPicker.sourceType = .camera
-                //                    cameraPicker.showsCameraControls = false
-                //                    cameraPicker.cameraOverlayView = self.setCameraView()
-                //在需要的地方present出来
                 self.present(cameraPicker, animated: true, completion: nil)
             } else {
                 print("不支持拍照")
@@ -135,55 +130,10 @@ class MyTabBarController: ESTabBarController,UINavigationControllerDelegate,UIIm
         
         
         if isOCR {
-            User.instance.cardoOR(imageData: image.pngData()!, longitude: lt?.longitude ?? 0, latitude: lt?.latitude ?? 0, completation: result)
-//            User.instance.cardoOCR(imageData: image.pngData()!, longitude: lt?.longitude ?? 0, latitude: lt?.latitude ?? 0) { (title, desc,photo_id)  in
-//                vc.ActivittyIndicator.stopAnimating()
-//                vc.NameLabel.text = title
-//                vc.ResultTextView.text = desc
-//
-//                if let p_id = photo_id {
-//
-//                    let row = CardoImage()
-//                    row.id = p_id
-//                    row.imageData = image.pngData()
-//                    row.imageFilePath = ""
-//
-//                    let db = try! Realm()
-//                    if db.object(ofType: CardoImage.self, forPrimaryKey: row.id) == nil {
-//                        try! db.write {
-//                            db.add(row)
-//                        }
-//                    }
-//                }
-//            }
+            User.instance.cardoOCR(imageData: image.pngData()!, longitude: lt?.longitude ?? 0, latitude: lt?.latitude ?? 0, completation: result)
         }else {
             User.instance.cardoOR(imageData: image.pngData()!, longitude: lt?.longitude ?? 0, latitude: lt?.latitude ?? 0, completation: result)
-//            User.instance.cardoOR(imageData: image.pngData()!, longitude: lt?.longitude ?? 0, latitude: lt?.latitude ?? 0) { (msg, words,photo_id)  in
-//                vc.ActivittyIndicator.stopAnimating()
-//                vc.NameLabel.text = msg
-//                vc.ResultTextView.text = words
-//
-//                if let p_id = photo_id {
-//
-//                    let row = CardoImage()
-//                    row.id = p_id
-//                    row.imageData = image.pngData()
-//                    row.imageFilePath = ""
-//
-//                    let db = try! Realm()
-//                    if db.object(ofType: CardoImage.self, forPrimaryKey: row.id) == nil {
-//                        try! db.write {
-//                            db.add(row)
-//                        }
-//                    }
-//                }
-//            }
         }
-        
-        
-        
-        
-        
     }
 
 }

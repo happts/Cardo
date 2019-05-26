@@ -20,6 +20,9 @@ class LoginViewController: UIViewController,UITabBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         IndicatorView.stopAnimating()
+        
+        self.AccountTextFieldView.text = UserDefaults.standard.string(forKey: "username")
+        self.PasswordTextFieldView.text = UserDefaults.standard.string(forKey: "password")
     }
     
     @IBAction func RegisterAction(_ sender: UIButton) {
@@ -74,6 +77,9 @@ class LoginViewController: UIViewController,UITabBarDelegate {
             sender.isEnabled = true
             
             if isLogin {
+                UserDefaults.standard.set(User.instance.username, forKey: "username")
+                UserDefaults.standard.set(User.instance.password, forKey: "password")
+                
                 self.performSegue(withIdentifier: "loginSuccess", sender: nil)
             }else {
                 UIAlertUtils.alertControllerWithMessage(ViewController: self, message: "网络连接失败")

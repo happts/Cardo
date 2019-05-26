@@ -90,27 +90,24 @@ class Cardo {
     
     let getImageRequest:DataRequest!
     
-    init(json:JSON) {
-        self.id = json["photo_id"].intValue
-        self.fileUserId = json["file_user_id"].intValue
-        self.userId = json["user_id"].intValue
-        //        self.fileUserNickname = json["nickname"].stringValue
-        self.imageFilePath = json["file_name"].stringValue
-        self.latitude = json["latitude"].doubleValue
-        self.longitude = json["longitude"].doubleValue
-        self.title = json["title"].stringValue
-        self.description = json["description"].stringValue
-        self.isShared = json["is_shared"].boolValue
-        self.isCollected = json["is_fav"].boolValue
-        self.time = json["upload_time"].stringValue.dateFromISO8601 ?? Date()
-        
-        self.getImageRequest = Alamofire.request(Server.baseUrl + "/" + self.imageFilePath, method: .get)
-        self.getImage { (result, data) in
+    convenience init(json:JSON) {
+        self.init(id: json["photo_id"].intValue,
+                  fileUserid: json["file_user_id"].intValue,
+                  time: json["upload_time"].stringValue.dateFromISO8601 ?? Date(),
+                  title: json["title"].stringValue,
+                  description: json["description"].stringValue,
+                  imageFilePath: json["file_name"].stringValue,
+                  latitude: json["latitude"].doubleValue,
+                  longitude: json["longitude"].doubleValue,
+                  isShared: json["is_shared"].boolValue,
+                  isCollected: json["is_fav"].boolValue, imageData: nil)
+        self.getImage { (_, _) in
+            return
         }
+        
     }
     
-    // FIXME: userid
-    init(id:Int,fileUserid:Int,time:Date,title:String,description:String,imageFilePath:String,latitude:Double,longitude:Double,isShared:Bool = false,isCollected:Bool = false,imageData:Data? = nil) {
+ init(id:Int,fileUserid:Int,time:Date,title:String,description:String,imageFilePath:String,latitude:Double,longitude:Double,isShared:Bool = false,isCollected:Bool = false,imageData:Data? = nil) {
         self.id = id
         self.fileUserId = fileUserid
         self.userId = 0
@@ -172,11 +169,9 @@ class Cardo {
         self.description = newValue.descripition
         self.isShared = newValue.isShared
         self.isCollected = newValue.isCollected
-        // TODO: 请求服务器
     }
     
     func delete(){
-        // TODO: 请求服务器
         UpdateCardo_Request(action: .delete, photoId: self.id).execute { (result) in
             print("删除\(result)")
         }
@@ -206,7 +201,6 @@ struct Day_Cardo {
     
     mutating func addCardo(_ cardo:Cardo){
         cardos.append(cardo)
-        
         //TODO:新增 Cardo 网络请求
     }
     

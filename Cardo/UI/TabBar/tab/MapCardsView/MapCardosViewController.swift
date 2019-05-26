@@ -40,7 +40,10 @@ class MapCardosViewController: UIViewController,CLLocationManagerDelegate,MKMapV
         ViewModel = MapCardosViewModel(self)
         // Do any additional setup after loading the view.
         locationManager.delegate = self
-        PrivacyRequest.requestLocationPrivacy(locationManager: self.locationManager, completation: nil)
+        
+        PrivacyRequest.requestLocationPrivacy(locationManager: self.locationManager) { (_) in
+            return
+        }
         
         CardMapView.delegate = self
         CardMapView.mapType = .standard
@@ -56,8 +59,6 @@ class MapCardosViewController: UIViewController,CLLocationManagerDelegate,MKMapV
             ViewModel.loadMyCardos()
         }else {
             ViewModel.loadNearbyCardos()
-//            let center = locationManager.location?.coordinate ?? CLLocationCoordinate2D(latitude: 31.497438, longitude: 120.318628)
-//            ViewModel.loadNearbyCardos(longitude: center.longitude, latitude: center.latitude)
         }
         
     }
@@ -120,5 +121,6 @@ class MapCardosViewController: UIViewController,CLLocationManagerDelegate,MKMapV
         vc.fromMap = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
     
 }

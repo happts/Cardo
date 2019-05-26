@@ -245,51 +245,55 @@ struct Upload_Request : MyRequest {
                 switch result {
                 case .success(let upload,_,_):
                     upload.responseJSON(completionHandler: { (response) in
-                        let json = JSON(response.value as Any)
-                        print(json)
-                        let desc = json["description"]
-                        
-                        responseMsg(json["title"].stringValue, desc["ldmk"].stringValue +
-                            desc["plant"].stringValue +
-                            desc["animal"].stringValue +
-                            desc["dish"].stringValue +
-                            (desc["or"].arrayValue.first ?? JSON())["keyword"].stringValue, json["file_id"].intValue )
-                        //
+                        switch response.result {
+                        case .success(let value):
+                            let json = JSON(value)
+                            print(json)
+                            let desc = json["description"]
+                            
+                            responseMsg(json["title"].stringValue, desc["ldmk"].stringValue +
+                                desc["plant"].stringValue +
+                                desc["animal"].stringValue +
+                                desc["dish"].stringValue +
+                                (desc["or"].arrayValue.first ?? JSON())["keyword"].stringValue, json["file_id"].intValue )
+                        case .failure(let error):
+                            print(error)
+                            responseMsg(String(describing: error), "",nil)
+                        }
                     })
                 case .failure(let error):
                     responseMsg(String(describing: error), "",nil)
-                
                 }
             }
         }
     }
 }
-struct Request_GetCardoImage:MyRequest {
-    var path: String
-    
-    var method: HTTPMethod
-    
-    var parameters: [String : String]?
-    
-    init(fileName:String) {
-        self.path = Server.baseUrl + "/" + fileName
-        self.method = .get
-        self.parameters = nil
-    }
-    
-    func execute(point:UnsafeMutablePointer<Cardo>,completation:@escaping (Bool)->Void ) {
-        self.request().responseData { (response) in
-            switch response.result {
-            case .success(let value):
-                point.pointee.imageData = value
-                completation(true)
-            case .failure(_):
-                completation(false)
-                print("获取照片失败")
-            }
-        }
-    }
-}
+//struct Request_GetCardoImage:MyRequest {
+//    var path: String
+//
+//    var method: HTTPMethod
+//
+//    var parameters: [String : String]?
+//
+//    init(fileName:String) {
+//        self.path = Server.baseUrl + "/" + fileName
+//        self.method = .get
+//        self.parameters = nil
+//    }
+//
+//    func execute(point:UnsafeMutablePointer<Cardo>,completation:@escaping (Bool)->Void ) {
+//        self.request().responseData { (response) in
+//            switch response.result {
+//            case .success(let value):
+//                point.pointee.imageData = value
+//                completation(true)
+//            case .failure(_):
+//                completation(false)
+//                print("获取照片失败")
+//            }
+//        }
+//    }
+//}
 
 struct Request_GetCardos:MyRequest {
     var path: String = Server.photoUrl
